@@ -1,20 +1,43 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from 'components/Index'
-import Detail from 'components/Detail'
-import foo from 'components/foo'
-import Home from 'components/home'
+
+import Index from 'page/Index'
+import Order from 'page/Order'
+import List from 'page/List'
+import Detail from 'page/Detail'
+import Cell from 'components/Cell'
+import Error from 'components/404'
+
+import Toast from 'page/toast/toast'
 
 Vue.use(Router)
-const Default = { template: '<div class="default">default</div>' }
+
 var router =  new Router({
   routes: [
-    {path: '/', component: Home },
-    {path: '/Index',component: Index,children:[
-      { path: '', component: Default },
-      {path:'Detail',component:Detail},
-      {path:'foo',component:foo}
-    ]}
+    {
+      path:'',
+      redirect:'/Index'
+    },
+    {
+      path: '/Index',
+      component: Index,
+      children:[
+        {path:'',component:List},
+        {path:'Toast',component:Toast},
+        {path:'Detail',component:Detail,children:[
+          {path:'Cell',component:Cell}
+        ]},
+
+      ]
+    },
+    {
+      path: '/Order',
+      component: Order
+    },
+    {
+      path:'*',
+      component:Error
+    }
   ]
 })
 

@@ -1,9 +1,9 @@
 <template lang="html">
-  <div class="detail">
-    <h2>foo</h2>
+  <div class="cell">
+    <h2>Cell</h2>
   </div>
 </template>
-
+  
 <script>
 export default {
 }

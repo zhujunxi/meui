@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="detail">
-    <h2>detail</h2>
+  <div class="order">
+    <h2>Order</h2>
   </div>
 </template>
 
