@@ -3,12 +3,12 @@
     <div class="accord-list" v-for="(item, index) in listData">
       <div class="accord-title" :class="{}" @click="cellShow(index)">
         <p>{{item.title}}</p>
-        <span class="iconfont">&#xe64b;</span>
+        <span class="iconfont" v-html="item.icon"></span>
       </div>
       <div class="accord-con" >
         <transition-group name="list" >
           <router-link
-            to="/Index"
+            :to="cell.link"
             v-show="item.showCell"
             v-for="(cell, idx) in item.cell"
             :key="cell.title"
@@ -20,6 +20,7 @@
       </div>
 
     </div>
+
   </div>
 </template>
 
@@ -71,7 +72,7 @@ export default {
     justify-content: space-between;
   }
   .accord-title span{
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 100;
   }
   .accord-con{
@@ -88,8 +89,7 @@ export default {
   .list-leave-active {
     transition: all 0s;
   }
-  .list-enter, .list-leave-to
-  /* .list-leave-active for below version 2.1.8 */ {
+  .list-enter, .list-leave-to {
     opacity: 0;
     transform: translateY(-60px);
   }

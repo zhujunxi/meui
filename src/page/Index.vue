@@ -1,12 +1,9 @@
 <template>
   <div class="parent">
-
-    <!-- <div class="wrapper" ref="wrapper">
-      <transition :name="transitionName">
-        <router-view class="child-view"></router-view>
-      </transition>
-    </div> -->
     <accord :listData="listData"></accord>
+    <transition name="slide">
+      <router-view class="child-view"></router-view>
+    </transition>
   </div>
 </template>
 
@@ -21,40 +18,56 @@ export default {
       transitionName:'slide-left',
       listData:[
         {
-          title:'组件',
-					icon:'&#xe602;',
+          title:'布局',
+					icon:'&#xe672;',
           showCell:true,
 					cell:[
-            {title:'Accordion',link:'components/accordion.html'},
-						{title:'Swiper',link:'picker.html'},
-						{title:'Lightbox',link:'picker.html'},
-						{title:'Pagination',link:'picker.html'},
-						{title:'Tabbar',link:'tab.html'},
-						{title:'Navbar',link:'picker.html'},
-						{title:'Off canvas',link:'picker.html'},
-						{title:'Pull to refresh',link:'picker.html'}
-
+            {title:'Grid',link:'Index/Accordion'},
+            {title:'Sticky',link:'Index/Accordion'},
+            {title:'Header',link:'Index/Accordion'},
+            {title:'BScroll',link:'Index/Accordion'},
 					]
         },
         {
-          title:'通讯',
-					icon:'&#xe602;',
+          title:'表单',
+					icon:'&#xe656;',
           showCell:false,
 					cell:[
-            {title:'Accordion',link:'components/accordion.html'},
-						{title:'Swiper',link:'picker.html'},
-						{title:'Lightbox',link:'picker.html'},
-						{title:'Pagination',link:'picker.html'}
+            {title:'Input',link:'Index/Accordion'},
+            {title:'Button',link:'Index/Accordion'},
+            {title:'Radio',link:'Index/Accordion'},
+            {title:'Checkbox',link:'Index/Accordion'},
+            {title:'Switch',link:'Index/Accordion'},
+            {title:'textarea',link:'Index/Accordion'},
+            {title:'Range',link:'Index/Accordion'},
+            {title:'Rater',link:'Index/Accordion'},
+            {title:'Uploader',link:'Index/Accordion'},
 					]
         },
         {
-          title:'通讯',
-					icon:'&#xe602;',
+          title:'操作反馈',
+					icon:'&#xe64b;',
           showCell:false,
 					cell:[
-            {title:'Accordion',link:'components/accordion.html'},
-						{title:'Swiper',link:'picker.html'},
-						{title:'Lightbox',link:'picker.html'},
+            {title:'ActionSheet',link:'Index/Accordion'},
+            {title:'Alert',link:'Index/Accordion'},
+            {title:'Confirm',link:'Index/Accordion'},
+            {title:'Popup',link:'Index/Accordion'},
+            {title:'Toast',link:'Index/Accordion'},
+            {title:'Loading',link:'Index/Accordion'},
+					]
+        },
+        {
+          title:'基础组件',
+					icon:'&#xe605;',
+          showCell:false,
+					cell:[
+            {title:'Swipe',link:'Index/Accordion'},
+            {title:'Picker',link:'Index/Accordion'},
+            {title:'Datetime',link:'Index/Accordion'},
+            {title:'Calender',link:'Index/Accordion'},
+            {title:'ImagePreview',link:'Index/Accordion'},
+            {title:'CellSwipe',link:'Index/Accordion'},
 					]
         }
       ]
@@ -70,7 +83,6 @@ export default {
   },
   watch:{
     '$route' (to, from) {
-      console.log(to.path.split('/').length);
       const toDepth = to.path.split('/').length
       const fromDepth = from.path.split('/').length
       this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
@@ -80,6 +92,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .parent{
+    padding-bottom: 50px;
+  }
 
 </style>

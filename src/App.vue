@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <transition name="fade" mode="out-in">
-      <router-view class="view"></router-view>
+      <keep-alive>
+        <router-view class="view"></router-view>
+      </keep-alive>
     </transition>
-    <tab-bar :showTab="showTab"></tab-bar>
+    <!-- :showTab="showTab" -->
+    <tab-bar :class="showTab?'slide-up':'slide-down'" ></tab-bar>
   </div>
 </template>
 
@@ -67,5 +70,19 @@ body{
   -webkit-transform: translate(-370px, 0);
   transform: translate(-375px, 0);
 }
-
+.slide-enter-active, .slide-leave-active{
+  transition: all .3s
+}
+.slide-enter, .slide-leave-to{
+  transform: translate3d(100%, 0, 0);
+  opacity: 0;
+}
+.slide-down{
+  transform: translate3d(0,100%,0);
+  transition: transform .3s
+}
+.slide-up{
+  transform: translate3d(0,0,0);
+  transition: transform .3s
+}
 </style>

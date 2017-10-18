@@ -8,36 +8,26 @@ import Detail from 'page/Detail'
 import Cell from 'components/Cell'
 import Error from 'components/404'
 
+import Accordion from 'page/Accordion/Accordion'
+
 import Toast from 'page/toast/toast'
 
 Vue.use(Router)
 
 var router =  new Router({
   routes: [
-    {
-      path:'',
-      redirect:'/Index'
-    },
-    {
-      path: '/Index',
-      component: Index,
+    {path:'',redirect:'/Index'},
+    {path:'*',component:Error},
+    {path: '/Index',component: Index,
+      meta:{title:'MEUI4'},
       children:[
-        {path:'',component:List},
-        {path:'Toast',component:Toast},
-        {path:'Detail',component:Detail,children:[
-          {path:'Cell',component:Cell}
-        ]},
+        {path:'Accordion',component:Accordion,meta:{title:'Accordion'}},
       ]
     },
-    {
-      path: '/Order',
-      component: Order
-    },
-    {
-      path:'*',
-      component:Error
-    }
+    {path: '/Order',component: Order ,meta:{title:'接口'}}
   ]
 })
-
+router.afterEach(routes => {
+  typeof routes.meta.title !== undefined && (document.title = routes.meta.title)
+})
 export default router
