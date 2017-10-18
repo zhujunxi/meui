@@ -27,7 +27,6 @@ var router =  new Router({
         {path:'Detail',component:Detail,children:[
           {path:'Cell',component:Cell}
         ]},
-
       ]
     },
     {

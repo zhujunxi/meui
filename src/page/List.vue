@@ -1,23 +1,25 @@
 <template lang="html">
-  <div class="list">
-    <h2>List</h2>
-    <ul>
-      <router-link
-        to="/Index/Detail"
-        v-for="(item, index) in listData"
-        :key="item"
-        tag="li"
-        >{{item}}
-      </router-link>
-    </ul>
-    <ul>
-      <router-link to="/Index/Toast" tag="li">Toast</router-link>
-    </ul>
-
+  <div class="list" >
+    <div class="wrapper2" ref="wrapper2">
+      <h2>List</h2>
+      <ul>
+        <router-link
+          to="/Index/Detail"
+          v-for="(item, index) in listData"
+          :key="item"
+          tag="li"
+          >{{item}}
+        </router-link>
+      </ul>
+      <ul>
+        <router-link to="/Index/Toast" tag="li">Toast</router-link>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+//import Bscroll from 'better-scroll'
 export default {
   data() {
     return{
@@ -27,6 +29,11 @@ export default {
         text:'一条长提示一条长提示一条长提示一条长提示'
       },
     }
+  },
+  mounted() {
+    // this.$nextTick(() => {
+    //   this.scroll = new Bscroll(this.$refs.wrapper, {})
+    // })
   }
 }
 </script>

@@ -1,6 +1,15 @@
-# meui
+# meui5
 
-> A Vue.js project
+- stylus
+- iconfont
+- better-scroll
+- es6
+
+## 解决的问题
+
+- [ ] 页面跳转的逻辑
+- [ ] 组件编写
+- [ ] 前后端逻辑处理
 
 ## Build Setup
 
@@ -17,5 +26,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

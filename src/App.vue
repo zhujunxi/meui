@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import TabBar from 'components/tab-bar'
+import TabBar from 'components/tab-bar/tab-bar'
 export default {
   data() {
     return {
@@ -43,6 +43,10 @@ h2{
   padding: 0;
   margin: 0;
 }
+body{
+  background-color: rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+}
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s ease;
 }
@@ -63,25 +67,5 @@ h2{
   -webkit-transform: translate(-370px, 0);
   transform: translate(-375px, 0);
 }
-.bar{
-  width: 100%;
-  height: 48px;
-  line-height: 48px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background-color: #ccc;
-  display: flex;
-  z-index: 1000;
-}
-.bar div{
-  flex: 1;
-  text-align: center;
-}
-.bar div:first-child{
-  border-right: 1px solid #eee;
-}
-.router-link-active{
-  color: #FF0000
-}
+
 </style>
