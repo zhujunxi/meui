@@ -1,5 +1,10 @@
 <template>
   <div class="parent">
+    <div class="intro" v-if="false">
+      <h1><span>MeUI</span>4.0</h1>
+      <p>A modular front-end UI framework based on Vue</p>
+    </div>
+
     <accord :listData="listData"></accord>
     <transition name="slide">
       <router-view class="child-view"></router-view>
@@ -20,10 +25,10 @@ export default {
         {
           title:'布局',
 					icon:'&#xe672;',
-          showCell:true,
+          showCell:false,
 					cell:[
             {title:'Grid',link:'Index/Accordion'},
-            {title:'Sticky',link:'Index/Accordion'},
+            {title:'Sticky',link:'Index/Uploader'},
             {title:'Header',link:'Index/Accordion'},
             {title:'BScroll',link:'Index/Accordion'},
 					]
@@ -41,7 +46,7 @@ export default {
             {title:'textarea',link:'Index/Accordion'},
             {title:'Range',link:'Index/Accordion'},
             {title:'Rater',link:'Index/Accordion'},
-            {title:'Uploader',link:'Index/Accordion'},
+            {title:'Uploader',link:'Index/Uploader'},
 					]
         },
         {
@@ -92,6 +97,22 @@ export default {
 </script>
 
 <style scoped>
+  .intro{
+    text-align: center;
+    padding: 20px 15px;
+  }
+  .intro h1{
+    font-size: 16px;
+    font-weight: 100;
+    padding: 20px 0 30px 0;
+    color: #09bb07;
+  }
+  .intro h1 span{
+    font-size: 50px;
+  }
+  .intro p{
+    font-size: 14px;
+  }
   .parent{
     padding-bottom: 50px;
   }

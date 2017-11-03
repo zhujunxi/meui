@@ -1,21 +1,20 @@
 <template lang="html">
   <div class="box-cell">
-    Accordion
-    <accord :listData="listData"></accord>
+    Uploader234
   </div>
 </template>
+
 <script>
-import Accord from 'components/accordion/accordion'
 export default {
-  data() {
+  data () {
     return {
       listData:[
         {
-          title:'Accordion演示',
+          title:'布局',
 					icon:'&#xe672;',
           showCell:false,
 					cell:[
-            {title:'Grid',link:'/Index/Accordion'},
+            {title:'Grid',link:'Index/Accordion'},
             {title:'Sticky',link:'Index/Uploader'},
             {title:'Header',link:'Index/Accordion'},
             {title:'BScroll',link:'Index/Accordion'},
@@ -25,7 +24,7 @@ export default {
     }
   },
   components:{
-    Accord
+
   }
 }
 </script>

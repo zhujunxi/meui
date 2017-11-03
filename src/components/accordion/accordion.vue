@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="accord">
     <div class="accord-list" v-for="(item, index) in listData">
-      <div class="accord-title" :class="{}" @click="cellShow(index)">
+      <div class="accord-title" :class="{'active':item.showCell}" @click="cellShow(index)">
         <p>{{item.title}}</p>
         <span class="iconfont" v-html="item.icon"></span>
       </div>
@@ -15,6 +15,7 @@
             tag="p"
           >
             {{cell.title}}
+            <span class="iconfont">&#xea69;</span>
           </router-link>
         </transition-group>
       </div>
@@ -75,13 +76,22 @@ export default {
     font-size: 1.6rem;
     font-weight: 100;
   }
+  .accord-title.active{
+    color: #999;
+  }
   .accord-con{
     overflow: hidden;
   }
   .accord-con p{
     background-color: #FFF;
-    padding: 10px 12px;
+    padding: 14px 12px;
     border-bottom: 1px solid #F3F3F3;
+    display: flex;
+    justify-content: space-between;
+  }
+  .accord-con p span{
+    font-size: 1.2rem;
+    color: #999;
   }
   .list-enter-active {
     transition: all .3s;

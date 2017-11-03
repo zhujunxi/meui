@@ -15,8 +15,11 @@ import TabBar from 'components/tab-bar/tab-bar'
 export default {
   data() {
     return {
-      showTab:true
+      showTab:false
     }
+  },
+  activated(){
+    console.log(this.$route);
   },
   watch: {
     '$route' (to, from) {
@@ -49,6 +52,7 @@ h2{
 body{
   background-color: rgba(0, 0, 0, 0.05);
   font-size: 16px;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s ease;
@@ -84,5 +88,14 @@ body{
 .slide-up{
   transform: translate3d(0,0,0);
   transition: transform .3s
+}
+.box-cell{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F3F3F3;
+  z-index: 100;
 }
 </style>
