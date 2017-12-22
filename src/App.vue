@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+
+    <me-layout :show-navbar="false" :show-tabbar="false">
+      <router-view/>
+      <div class="me-tabbar" slot="tabbar">
+        底栏
+      </div>
+    </me-layout>
   </div>
 </template>
 
@@ -11,13 +16,13 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus">
+#app
+  height 100%
+
+.me-tabbar
+  height 60px
+  line-height 50px
+  display flex
+  background #666
 </style>
