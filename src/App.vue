@@ -3,9 +3,14 @@
 
     <me-layout :show-navbar="false" :show-tabbar="false">
       <router-view/>
-      <div class="me-tabbar" slot="tabbar">
-        底栏
-      </div>
+      <me-tabbar slot="tabbar">
+        <me-tabbar-item title="首页" link="/Index" active>
+          <i class="iconfont" slot="icon">&#xe658;</i>
+        </me-tabbar-item>
+        <me-tabbar-item title="接口" link="/Index">
+          <i class="iconfont" slot="icon">&#xe669;</i>
+        </me-tabbar-item>
+      </me-tabbar>
     </me-layout>
   </div>
 </template>
@@ -20,9 +25,5 @@ export default {
 #app
   height 100%
 
-.me-tabbar
-  height 60px
-  line-height 50px
-  display flex
-  background #666
+
 </style>
