@@ -18,7 +18,7 @@ export default {
     display flex
     justify-content space-around
     background #FFF
-    padding 4px 0
+    border-top 2px solid rgba(0,0,0,0.08)
     .me-tabbar-item
       display flex
       flex-direction column
@@ -27,6 +27,7 @@ export default {
       align-items center
       justify-content center
       color #999
+      padding 4px 0
       .me-tabbar-icon
         i
           font-size 28px
