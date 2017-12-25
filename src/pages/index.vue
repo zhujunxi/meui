@@ -1,8 +1,11 @@
 <template>
   <div class="hello">
     <div class="intro">
-      <h1>MEUI <span>4.0</span></h1>
-      <p>A Front-end web Farmework based on VUE</p>
+      <div class="intro-title">
+        MEUI<span class="intro-version">4.0</span>
+      </div>
+
+      <div class="intro-desc">A Front-end web Farmework based on VUE</div>
     </div>
 
     <div class="list-slide-wrap">
@@ -26,25 +29,24 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
   .intro
-    padding 30px 20px
+    padding 40px 20px
     text-align center
-    h1
-      font-size 40px
+    .intro-title
+      font-size 50px
       font-weight 100
       color #09bb07
-      padding 15px
       position relative
-      span
+      display inline
+      .intro-version
         position absolute
-        left 50%
-        top 20px
-        margin-left 80px
+        right -28px
+        top 0px
         font-size 12px
         color #FFF
         background #09bb07
-        padding 0px 4px
-        transform translateX(-20px)
-    p
+        padding 1px 4px
+        border-radius 3px
+    .intro-desc
       font-weight 400
       color #999
 
