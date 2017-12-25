@@ -1,5 +1,5 @@
 <template>
-  <me-layout :show-navbar="true" :show-tabbar="false">
+  <me-layout :show-navbar="false" :show-tabbar="false">
     <router-view/>
     <me-tabbar slot="tabbar">
       <me-tabbar-item title="首页" link="/Index" active>

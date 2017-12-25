@@ -1,5 +1,10 @@
 <template>
   <div class="hello">
+    <div class="intro">
+      <h1>MEUI <span>4.0</span></h1>
+      <p>A Front-end web Farmework based on VUE</p>
+    </div>
+
     <div class="list-slide-wrap">
       <div class="list-slide" v-for="(menu, idx) in menuData">
         <div class="list-slide__hd" @click="toggleMenu(idx)">
@@ -20,18 +25,42 @@
 </template>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
+  .intro
+    padding 30px 20px
+    text-align center
+    h1
+      font-size 40px
+      font-weight 100
+      color #09bb07
+      padding 15px
+      position relative
+      span
+        position absolute
+        left 50%
+        top 20px
+        margin-left 80px
+        font-size 12px
+        color #FFF
+        background #09bb07
+        padding 0px 4px
+        transform translateX(-20px)
+    p
+      font-weight 400
+      color #999
+
   .list-slide-wrap
     width 94%
     margin 20px auto
     .list-slide
       margin 16px 0
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+      border-radius 3px
+      background #FFF
       .list-slide__hd
-        background #FFF
         padding 18px
         .list-slide-title
           font-size 16px
       .list-slide__bd
-        background #FFF
         border-top 1px solid rgba(0,0,0,0.06)
         .list
           padding 14px
