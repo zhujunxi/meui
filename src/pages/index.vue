@@ -26,6 +26,48 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      msg: 'H',
+      menuData:[
+        {
+          title:'基础组件',
+          active:false,
+          list:[
+            {title:'Layout - 布局',path:'./index.vue'},
+            {title:'Layout - 徽章',path:'./index.vue'},
+            {title:'Layout - 按钮',path:'./index.vue'},
+            {title:'Layout - 布局',path:'./index.vue'},
+            {title:'Layout - 布局',path:'./index.vue'},
+            {title:'Layout - 布局',path:'./index.vue'},
+          ]
+        },
+        {
+          title:'基础组件',
+          active:false,
+          list:[
+            {title:'Layout - 布局',path:'./index.vue'},
+            {title:'Layout - 徽章',path:'./index.vue'},
+            {title:'Layout - 按钮',path:'./index.vue'},
+            {title:'Layout - 布局',path:'./index.vue'},
+            {title:'Layout - 布局',path:'./index.vue'},
+            {title:'Layout - 布局',path:'./index.vue'},
+          ]
+        }
+      ]
+    }
+  },
+  methods:{
+    toggleMenu(idx) {
+      this.menuData[idx].active = !this.menuData[idx].active
+    }
+  }
+}
+</script>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
   .intro
@@ -79,46 +121,3 @@
     opacity: 0;
   }
 </style>
-
-<script>
-export default {
-  data () {
-    return {
-      msg: 'H',
-      menuData:[
-        {
-          title:'基础组件',
-          active:false,
-          list:[
-            {title:'Layout - 布局',path:'./index.vue'},
-            {title:'Layout - 徽章',path:'./index.vue'},
-            {title:'Layout - 按钮',path:'./index.vue'},
-            {title:'Layout - 布局',path:'./index.vue'},
-            {title:'Layout - 布局',path:'./index.vue'},
-            {title:'Layout - 布局',path:'./index.vue'},
-          ]
-        },
-        {
-          title:'基础组件',
-          active:false,
-          list:[
-            {title:'Layout - 布局',path:'./index.vue'},
-            {title:'Layout - 徽章',path:'./index.vue'},
-            {title:'Layout - 按钮',path:'./index.vue'},
-            {title:'Layout - 布局',path:'./index.vue'},
-            {title:'Layout - 布局',path:'./index.vue'},
-            {title:'Layout - 布局',path:'./index.vue'},
-          ]
-        }
-      ]
-    }
-  },
-  methods:{
-    toggleMenu(idx) {
-      this.menuData[idx].active = !this.menuData[idx].active
-    }
-  }
-}
-</script>
-
-
