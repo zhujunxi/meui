@@ -2,7 +2,8 @@
   <div class="hello">
     <div class="intro">
       <div class="intro-title">
-        MEUI<span class="intro-version">4.0</span>
+        <img :src="require('./image/meui-120.png')" width="80" height="80" alt="">
+        <!-- <div class="intro-text">EUI<span class="intro-version">4.0</span></div> -->
       </div>
 
       <div class="intro-desc">A Front-end web Farmework based on VUE</div>
@@ -74,11 +75,16 @@ export default {
     padding 40px 20px
     text-align center
     .intro-title
-      font-size 50px
+      font-size 20px
       font-weight 100
       color #09bb07
       position relative
-      display inline
+      display flex
+      justify-content center
+      .intro-text
+        height 80px
+        line-height 80px
+        vertical-align bottom
       .intro-version
         position absolute
         right -28px
