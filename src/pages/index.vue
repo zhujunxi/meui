@@ -12,7 +12,7 @@
     <div class="list-slide-wrap">
       <div class="list-slide" v-for="(menu, idx) in menuData">
         <div class="list-slide__hd" @click="toggleMenu(idx)">
-          <div class="list-slide-title">{{ menu.title }}</div>
+          <div :class="['list-slide-title', {active:menu.active}]">{{ menu.title }}</div>
         </div>
         <transition name="slide-fade">
         <div class="list-slide__bd" v-show="menu.active">
@@ -32,7 +32,6 @@
 export default {
   data () {
     return {
-      msg: 'H',
       menuData:[{
           title:'布局',
           active:false,
@@ -84,7 +83,6 @@ export default {
             {title:'Spinner - 数量选择器',path:'./index.vue'},
             {title:'Search - 搜索',path:'./index.vue'},
             {title:'List - 列表',path:'./index.vue'},
-            {title:'Lightbox - 图片查看',path:'./index.vue'},
           ]
         }
       ]
@@ -133,12 +131,14 @@ export default {
     .list-slide
       margin 16px 0
       box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-      border-radius 3px
+      border-radius 1px
       background #FFF
       .list-slide__hd
         padding 18px
         .list-slide-title
           font-size 16px
+          &.active
+            color #999
       .list-slide__bd
         border-top 1px solid rgba(0,0,0,0.06)
         .list
