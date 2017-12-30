@@ -6,12 +6,20 @@ import Layout from '@/pages/layout/layout';
 
 Vue.use(Router)
 
-export default new Router({
+var router = new Router({
   routes: [
     {path: '/',redirect: '/Index'},
-    {path: '/Index',component: Index,children:[
-      {path: 'Layout',component: Layout},
+    {path: '/Index',component: Index,meta:{title:'Vue Mobile UI'},children:[
+      {path: 'Layout',component: Layout,meta:{title:'Layout'}},
     ]},
-    {path: '/Api',component: Api},
+    {path: '/Api',component: Api,meta:{title:'Api'}},
   ]
 })
+
+router.beforeEach((to, from, next) => { 
+  //修改页面title
+  document.title = 'MEUI - ' + to.meta.title;
+  next();
+})
+
+export default router

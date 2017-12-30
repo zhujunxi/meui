@@ -2,7 +2,7 @@
   <div class="page hello">
     <div class="intro">
       <div class="intro-title">
-        <img :src="require('./image/meui-120.png')" width="80" height="80" alt="">
+        <img :src="require('./image/meui.png')" width="80" height="80" alt="">
         <!-- <div class="intro-text">EUI<span class="intro-version">4.0</span></div> -->
       </div>
       <div class="intro-desc">A Front-end web Farmework based on VUE</div>
@@ -110,7 +110,7 @@ export default {
   .page
     position relative
   .intro
-    padding 40px 20px
+    padding 25px 20px
     text-align center
     .intro-title
       font-size 20px
@@ -138,7 +138,7 @@ export default {
 
   .list-slide-wrap
     width 94%
-    margin 20px auto
+    margin 10px auto
     .list-slide
       margin 16px 0
       box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);

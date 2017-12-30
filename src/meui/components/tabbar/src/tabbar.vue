@@ -14,11 +14,14 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '../../../stylus/variable.styl';
+@import '../../../stylus/mixin.styl';
+
   .me-tabbar
     display flex
     justify-content space-around
     background #FFF
-    border-top 2px solid rgba(0,0,0,0.08)
+    border-1px(top, rgba(0,0,0,0.12), 0)
     .me-tabbar-item
       display flex
       flex-direction column
@@ -36,7 +39,7 @@ export default {
         margin-top -2px
         padding 2px
       &.me-tabbar-active
-        color rgba(9, 187, 7,1)
+        color $color-theme
 
 </style>
 
