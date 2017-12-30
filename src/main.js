@@ -7,8 +7,6 @@ import MEUI from './meui';
 import FastClick from 'fastclick'
 FastClick.attach(document.body)
 
-import 'assets/stylus/index.styl'
-
 Vue.use(MEUI);
 
 Vue.config.productionTip = false

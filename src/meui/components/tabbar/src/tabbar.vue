@@ -34,6 +34,7 @@ export default {
       .me-tabbar-title
         font-size 12px
         margin-top -2px
+        padding 2px
       &.me-tabbar-active
         color rgba(9, 187, 7,1)
 

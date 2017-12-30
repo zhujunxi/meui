@@ -1,3 +1,4 @@
+import './stylus/index.styl';
 
 import {Layout} from './components/layout';
 import {TabBar, TabBarItem} from './components/tabbar'

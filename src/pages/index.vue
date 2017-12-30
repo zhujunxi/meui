@@ -5,10 +5,8 @@
         <img :src="require('./image/meui-120.png')" width="80" height="80" alt="">
         <!-- <div class="intro-text">EUI<span class="intro-version">4.0</span></div> -->
       </div>
-
       <div class="intro-desc">A Front-end web Farmework based on VUE</div>
     </div>
-
     <div class="list-slide-wrap">
       <div class="list-slide" v-for="(menu, idx) in menuData" :key="idx">
         <div class="list-slide__hd" @click="toggleMenu(idx)">
