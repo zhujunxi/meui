@@ -10,7 +10,7 @@
     </div>
 
     <div class="list-slide-wrap">
-      <div class="list-slide" v-for="(menu, idx) in menuData">
+      <div class="list-slide" v-for="(menu, idx) in menuData" :key="idx">
         <div class="list-slide__hd" @click="toggleMenu(idx)">
           <div :class="['list-slide-title', {active:menu.active}]">{{ menu.title }}</div>
         </div>
@@ -98,6 +98,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
+  @import '~assets/stylus/mixin.styl';
+
   .intro
     padding 40px 20px
     text-align center
@@ -134,15 +136,18 @@ export default {
       border-radius 1px
       background #FFF
       .list-slide__hd
-        padding 18px
+        padding 20px 18px
         .list-slide-title
           font-size 16px
           &.active
             color #999
       .list-slide__bd
-        border-top 1px solid rgba(0,0,0,0.06)
+        border-1px(top, rgba(0,0,0,0.12), 0) 
+        overflow hidden
         .list
           padding 14px
+          &:not(:first-child)
+            border-1px(top, rgba(0,0,0,0.12), 12px)
 
   .slide-fade-enter-active {
     transition: all .3s ease;

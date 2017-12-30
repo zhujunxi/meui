@@ -1,0 +1,46 @@
+// 背景图片
+bg-image($url)
+  background-image: url($url + "@2x.png")
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+    background-image: url($url + "@3x.png")
+
+// 不换行
+text-overflow()
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+
+// 边框
+border-1px($type, $color, $move)
+  position: relative
+  &:after
+    content: ''
+    height: 1px
+    width: 100%
+    background: $color
+    position: absolute
+    transform: scaleY(.5)
+    if $type == top
+      top 0
+      left $move
+    if $type == bottom
+      bottom: 0
+      left 0
+    if $type == left
+      top 0
+      left 0 
+    if $type == right
+      top 0
+      right 0
+
+
+// 扩展点击区域
+extend-click()
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    top: -10px
+    left: -10px
+    right: -10px
+    bottom: -10px
