@@ -7,3 +7,29 @@ body, html
   -webkit-tap-highlight-color: transparent
   background: $color-background
   color: $color-text
+
+.view-page
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 100
+  background: $color-background
+  width: 100%
+  min-height: 100%
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2)
+
+
+.slide-fade-enter-active, .slide-fade-leave-active
+    transition: all .3s ease
+
+.slide-fade-enter, .slide-fade-leave-to
+  transform: translateY(-20px)
+  opacity: 0
+
+
+.slide-left-enter-active, .slide-left-leave-active
+    transition: all 6.3s ease
+
+.slide-left-enter, .slide-left-leave-to
+  transform: translateX(100%)
+

@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="page hello">
     <div class="intro">
       <div class="intro-title">
         <img :src="require('./image/meui-120.png')" width="80" height="80" alt="">
@@ -14,15 +14,25 @@
         </div>
         <transition name="slide-fade">
         <div class="list-slide__bd" v-show="menu.active">
-          <div class="list" v-for="(list, index) in menu.list" :key="index">
+          <router-link 
+            class="list" 
+            v-for="(list, index) in menu.list" 
+            :key="index"
+            :to="list.path"
+            tag="div"
+          >
             <div class="list__bd">
               {{ list.title }}
             </div>
-          </div>
+          </router-link>
         </div>
         </transition>
       </div>
     </div>
+    <transition name="slide-left">
+      <router-view/>
+    </transition>
+    
   </div>
 </template>
 
@@ -34,7 +44,7 @@ export default {
           title:'布局',
           active:false,
           list:[
-            {title:'Layout - 布局',path:'./index.vue'},
+            {title:'Layout - 布局',path:'/Index/Layout'},
             {title:'Navbar - 顶栏',path:'./index.vue'},
             {title:'Tabbar - 底栏',path:'./index.vue'},
             {title:'Flex - 弹性布局',path:'./index.vue'},
@@ -97,7 +107,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
   @import '~assets/stylus/mixin.styl';
-
+  .page
+    position relative
   .intro
     padding 40px 20px
     text-align center
@@ -149,15 +160,4 @@ export default {
           &:not(:first-child)
             border-1px(top, rgba(0,0,0,0.12), 12px)
 
-  .slide-fade-enter-active {
-    transition: all .3s ease;
-  }
-  .slide-fade-leave-active {
-    transition: all .3s ease;
-  }
-  .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active for below version 2.1.8 */ {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
 </style>
