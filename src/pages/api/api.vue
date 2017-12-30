@@ -1,5 +1,5 @@
 <template>
-  <div class="view-page">
+  <div class="page">
       <h1>api</h1>
   </div>
 </template>
@@ -18,5 +18,6 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-
+  .page
+    position relative
 </style>
