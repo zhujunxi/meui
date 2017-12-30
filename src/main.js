@@ -3,9 +3,11 @@ import App from './App'
 import router from './router'
 
 import MEUI from './meui';
-import FastClick from 'fastclick'
 
+import FastClick from 'fastclick'
 FastClick.attach(document.body)
+
+import 'assets/stylus/index.styl'
 
 Vue.use(MEUI);
 
