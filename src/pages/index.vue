@@ -137,6 +137,7 @@ export default {
       background #FFF
       .list-slide__hd
         padding 20px 18px
+        tap-active()
         .list-slide-title
           font-size 16px
           &.active
@@ -145,7 +146,8 @@ export default {
         border-1px(top, rgba(0,0,0,0.12), 0) 
         overflow hidden
         .list
-          padding 14px
+          padding 18px 14px
+          tap-active()
           &:not(:first-child)
             border-1px(top, rgba(0,0,0,0.12), 12px)
 
