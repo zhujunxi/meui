@@ -39,22 +39,21 @@ body, html
   min-width: 300px
 
 .me-page
-  width: 100%;
-  height: 100%;
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  position: relative;
-  margin-bottom: -1px;
+  width: 100%
+  height: 100%
+  flex: 1
+  overflow-y: auto
+  overflow-x: hidden
+  -webkit-overflow-scrolling: touch
+  position: relative
   background: #F8F8F8
 
 .me-navbar
   height 50px
   line-height 50px
-  background #ccc
+  background #FFF
   text-align center
-
+  
 </style>
 
 

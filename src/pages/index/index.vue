@@ -45,8 +45,6 @@ export default {
           active:false,
           list:[
             {title:'Layout - 布局',path:'/Index/Layout'},
-            {title:'Navbar - 顶栏',path:'./index.vue'},
-            {title:'Tabbar - 底栏',path:'./index.vue'},
             {title:'Flex - 弹性布局',path:'./index.vue'},
             {title:'pull-refresh - 下拉加载',path:'./index.vue'},
             {title:'infintit - 无限滚动',path:'./index.vue'},
@@ -107,8 +105,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
   @import '~assets/stylus/mixin.styl';
-  .page
-    position relative
   .intro
     padding 25px 20px
     text-align center
