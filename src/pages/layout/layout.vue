@@ -12,8 +12,7 @@
       </me-cell-group>
       <div class="phone">
         <me-layout :show-navbar="showHeader">
-          <div>
-            <div class="layout-item" v-if="activeTab === 0">
+          <div class="layout-item" v-if="activeTab === 0">
               标签A
             </div>
             <div class="layout-item" v-if="activeTab === 1">
@@ -22,7 +21,6 @@
             <div class="layout-item" v-if="activeTab === 2">
               标签C
             </div>
-          </div>
           <me-tabbar slot="tabbar" v-if="showTab">
             <me-tabbar-item title="标签A" @click.native="changeTab(0)" :active="activeTab == 0" type="div">
               <i class="iconfont" slot="icon">&#xe658;</i>
@@ -69,5 +67,5 @@ export default {
     display flex
     justify-content center
     align-items center
-    height 200px
+    height 100%
 </style>
