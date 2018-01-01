@@ -1,5 +1,12 @@
 <template>
-  <router-link :to="link" tag="div" class="me-tabbar-item" :class="classes">
+  <div class="me-tabbar-item" :class="classes" v-if="type == 'div'">
+    <span class="me-tabbar-icon">
+      <slot name="icon"></slot>
+    </span>
+    <span class="me-tabbar-title">{{title}}</span>
+  </div>
+
+  <router-link :to="link" tag="div" class="me-tabbar-item" :class="classes" v-else>
     <span class="me-tabbar-icon">
       <slot name="icon"></slot>
     </span>
@@ -13,7 +20,11 @@ export default {
   props:{
     link: [String, Object],
     title: String,
-    active: Boolean
+    active: Boolean,
+    type:{
+      type:[String],
+      default: 'router'
+    }
   },
   computed:{
     classes() {
