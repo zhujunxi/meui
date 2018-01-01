@@ -55,7 +55,7 @@ export default {
           list:[
             {title:'Button - 按钮',path:'./index.vue'},
             {title:'Form - 表单',path:'./index.vue'},
-            {title:'Cell - 列表',path:'./index.vue'},
+            {title:'Cell - 列表',path:'/Index/Cell'},
             {title:'Radio - 单选',path:'./index.vue'},
             {title:'CheckBox - 多选',path:'./index.vue'},
             {title:'Selector - 选择器',path:'./index.vue'},
