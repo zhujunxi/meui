@@ -23,7 +23,6 @@ export default {
   },
   watch: {
       '$route' (to, from) {
-        console.log(to)
         //记录活跃路由名称
         this.activePath = to.path;
         // 当前路由包含'Index'则显示tabbar
@@ -34,7 +33,7 @@ export default {
           this.showTab = false;
         }
       }
-    },
+  },
   
 }
 </script>

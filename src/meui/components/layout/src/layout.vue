@@ -1,8 +1,6 @@
 <template>
   <div class="me-view">
-    <header class="me-navbar" v-if="showNavbar">
-      页头
-    </header>
+    <me-navbar v-if="showNavbar" title="页头"></me-navbar>
     <section class="me-page">
       <slot></slot>
     </section>
@@ -47,12 +45,6 @@ body, html
   -webkit-overflow-scrolling: touch
   position: relative
   background: #F8F8F8
-
-.me-navbar
-  height 50px
-  line-height 50px
-  background #FFF
-  text-align center
   
 </style>
 
