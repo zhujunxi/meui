@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Index from '@/pages/index/index';
   import Layout from '@/pages/layout/layout';
   import Cell from '@/pages/cell/cell';
+  import Form from '@/pages/form/form';
 import Api from '@/pages/api/api';
 
 
@@ -14,6 +15,7 @@ var router = new Router({
     {path: '/Index',component: Index,meta:{title:'Vue Mobile UI'},children:[
       {path: 'Layout',component: Layout,meta:{title:'Layout'}},
       {path: 'Cell',component: Cell,meta:{title:'Cell'}},
+      {path: 'Form',component: Form,meta:{title:'Form'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]

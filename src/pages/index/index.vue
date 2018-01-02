@@ -45,50 +45,50 @@ export default {
           active:false,
           list:[
             {title:'Layout - 布局',path:'/Index/Layout'},
-            {title:'Flex - 弹性布局',path:'./index.vue'},
-            {title:'pull-refresh - 下拉加载',path:'./index.vue'},
-            {title:'infintit - 无限滚动',path:'./index.vue'},
+            {title:'Flex - 弹性布局',path:'/Index/Cell'},
+            {title:'pull-refresh - 下拉加载',path:'/Index/Cell'},
+            {title:'infintit - 无限滚动',path:'/Index/Cell'},
           ]
         },{
           title:'表单组件',
           active:false,
           list:[
-            {title:'Button - 按钮',path:'./index.vue'},
-            {title:'Form - 表单',path:'./index.vue'},
+            {title:'Button - 按钮',path:'/Index/Cell'},
+            {title:'Form - 表单',path:'/Index/Form'},
             {title:'Cell - 列表',path:'/Index/Cell'},
-            {title:'Radio - 单选',path:'./index.vue'},
-            {title:'CheckBox - 多选',path:'./index.vue'},
-            {title:'Selector - 选择器',path:'./index.vue'},
-            {title:'Switch - 开关',path:'./index.vue'},
-            {title:'Uploader - 图片上传',path:'./index.vue'},
-            {title:'Datepicker - 日期选择',path:'./index.vue'},
-            {title:'Citypicker - 地区选择',path:'./index.vue'},
+            {title:'Radio - 单选',path:'/Index/Cell'},
+            {title:'CheckBox - 多选',path:'/Index/Cell'},
+            {title:'Selector - 选择器',path:'/Index/Cell'},
+            {title:'Switch - 开关',path:'/Index/Cell'},
+            {title:'Uploader - 图片上传',path:'/Index/Cell'},
+            {title:'Datepicker - 日期选择',path:'/Index/Cell'},
+            {title:'Citypicker - 地区选择',path:'/Index/Cell'},
           ]
         },{
           title:'操作反馈',
           active:false,
           list:[
-            {title:'Toast - 吐司提示',path:'./index.vue'},
-            {title:'Dialog - 对话框',path:'./index.vue'},
-            {title:'Actionsheet - 操作表',path:'./index.vue'},
-            {title:'Loading - 加载',path:'./index.vue'},
+            {title:'Toast - 吐司提示',path:'/Index/Cell'},
+            {title:'Dialog - 对话框',path:'/Index/Cell'},
+            {title:'Actionsheet - 操作表',path:'/Index/Cell'},
+            {title:'Loading - 加载',path:'/Index/Cell'},
           ]
         },{
           title:'基础组件',
           active:false,
           list:[
-            {title:'Accordion - 折叠菜单',path:'./index.vue'},
-            {title:'Popup - 弹层',path:'./index.vue'},
-            {title:'Slider - 轮播',path:'./index.vue'},
-            {title:'Lightbox - 图片查看',path:'./index.vue'},
+            {title:'Accordion - 折叠菜单',path:'/Index/Cell'},
+            {title:'Popup - 弹层',path:'/Index/Cell'},
+            {title:'Slider - 轮播',path:'/Index/Cell'},
+            {title:'Lightbox - 图片查看',path:'/Index/Cell'},
           ]
         },{
           title:'业务组件',
           active:false,
           list:[
-            {title:'Spinner - 数量选择器',path:'./index.vue'},
-            {title:'Search - 搜索',path:'./index.vue'},
-            {title:'List - 列表',path:'./index.vue'},
+            {title:'Spinner - 数量选择器',path:'/Index/Cell'},
+            {title:'Search - 搜索',path:'/Index/Cell'},
+            {title:'List - 列表',path:'/Index/Cell'},
           ]
         }
       ]
