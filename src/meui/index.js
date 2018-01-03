@@ -5,6 +5,7 @@ import {NavBar} from './components/navbar';
 import {TabBar, TabBarItem} from './components/tabbar';
 import {CellGroup, CellItem} from './components/cell';
 import {Switch} from './components/switch';
+import {Button} from './components/button';
 
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
@@ -12,6 +13,7 @@ const install = function (Vue) {
   Vue.component(TabBar.name, TabBar);
   Vue.component(TabBarItem.name, TabBarItem);
   Vue.component(Switch.name, Switch);
+  Vue.component(Button.name, Button);
   Vue.component(CellGroup.name, CellGroup);
   Vue.component(CellItem.name, CellItem);
 };

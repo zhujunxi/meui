@@ -4,6 +4,7 @@ import Index from '@/pages/index/index';
   import Layout from '@/pages/layout/layout';
   import Cell from '@/pages/cell/cell';
   import Form from '@/pages/form/form';
+  import Button from '@/pages/button/button';
 import Api from '@/pages/api/api';
 
 
@@ -16,6 +17,7 @@ var router = new Router({
       {path: 'Layout',component: Layout,meta:{title:'Layout'}},
       {path: 'Cell',component: Cell,meta:{title:'Cell'}},
       {path: 'Form',component: Form,meta:{title:'Form'}},
+      {path: 'Button',component: Button,meta:{title:'Button'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]

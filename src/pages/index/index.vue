@@ -53,7 +53,7 @@ export default {
           title:'表单组件',
           active:false,
           list:[
-            {title:'Button - 按钮',path:'/Index/Cell'},
+            {title:'Button - 按钮',path:'/Index/Button'},
             {title:'Form - 表单',path:'/Index/Form'},
             {title:'Cell - 列表',path:'/Index/Cell'},
             {title:'Radio - 单选',path:'/Index/Cell'},
