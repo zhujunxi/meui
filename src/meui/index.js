@@ -6,16 +6,20 @@ import {TabBar, TabBarItem} from './components/tabbar';
 import {CellGroup, CellItem} from './components/cell';
 import {Switch} from './components/switch';
 import {Button} from './components/button';
+import {Input} from './components/input';
 
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
   Vue.component(NavBar.name, NavBar);
   Vue.component(TabBar.name, TabBar);
   Vue.component(TabBarItem.name, TabBarItem);
-  Vue.component(Switch.name, Switch);
-  Vue.component(Button.name, Button);
   Vue.component(CellGroup.name, CellGroup);
   Vue.component(CellItem.name, CellItem);
+
+  Vue.component(Switch.name, Switch);
+  Vue.component(Button.name, Button);
+  Vue.component(Input.name, Input);
+
 };
 
 if (typeof window !== 'undefined' && window.Vue) {

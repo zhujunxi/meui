@@ -5,7 +5,7 @@ import router from './router'
 import MEUI from './meui';
 
 import FastClick from 'fastclick'
-FastClick.attach(document.body)
+// FastClick.attach(document.body)
 
 Vue.use(MEUI);
 

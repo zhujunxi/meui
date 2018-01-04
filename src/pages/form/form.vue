@@ -1,20 +1,14 @@
 <template>
   <div class="view-page">
-      <me-cell-group title="设置车身颜色">
-          <me-cell-item>
-              <i class="iconfont" slot="icon">&#xe669;</i>
-              <span slot="left">左边内容一</span>
-              <span slot="right">左边内容一</span>
-          </me-cell-item>
-          <me-cell-item arrow>
-              <span slot="left">左边内容一</span>
-              <span slot="right">左边内容一</span>
-          </me-cell-item>
-          <me-cell-item>
-              <span slot="left">设置此地址默认地址</span>
-              <me-switch slot="right" v-model="showHeader"></me-switch>
-          </me-cell-item>
+      <me-cell-group :title="inputText">
+          <me-input title="客户名称" v-model="inputText"></me-input>
+          <me-input title="联系电话" type="number" :max="11" v-model="phone"></me-input>
+          <me-input title="不可更改" type="number" disabled v-model="phone"></me-input>
       </me-cell-group>
+      <p style="padding:0 20px">
+        <me-button size="large">确定</me-button>
+      </p>
+
   </div>
 </template>
 
@@ -22,12 +16,14 @@
 export default {
   data () {
     return {
-        showHeader:false
+        showHeader: false,
+        inputText: '表单组件',
+        phone: 18682088658
     };
   },
   methods: {
 
-  }
+  },
 }
 </script>
 
