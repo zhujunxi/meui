@@ -7,6 +7,7 @@ import {CellGroup, CellItem} from './components/cell';
 import {Switch} from './components/switch';
 import {Button} from './components/button';
 import {Input} from './components/input';
+import {Textarea} from './components/textarea';
 
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
@@ -19,6 +20,7 @@ const install = function (Vue) {
   Vue.component(Switch.name, Switch);
   Vue.component(Button.name, Button);
   Vue.component(Input.name, Input);
+  Vue.component(Textarea.name, Textarea);
 
 };
 

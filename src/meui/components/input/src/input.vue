@@ -99,7 +99,7 @@ export default {
         overflow hidden
         position relative
         background #ffffff
-        font-size 14px
+        font-size 16px
         min-height 48px
         padding 0px 16px
         justify-content space-between
@@ -113,6 +113,7 @@ export default {
             display flex
             justify-content left
             align-items center
+            min-width 76px
         .me-cell__ft
             display flex
             justify-content flex-end
@@ -137,7 +138,7 @@ export default {
     cursor: auto;
     letter-spacing: normal;
     word-spacing: normal;
-    font-size 14px
+    font-size 16px
     -webkit-writing-mode: horizontal-tb;
   &[disabled]
     background #FFF
