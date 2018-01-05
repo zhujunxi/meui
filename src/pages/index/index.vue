@@ -14,9 +14,9 @@
         </div>
         <transition name="slide-fade">
         <div class="list-slide__bd" v-show="menu.active">
-          <router-link 
-            class="list" 
-            v-for="(list, index) in menu.list" 
+          <router-link
+            class="list"
+            v-for="(list, index) in menu.list"
             :key="index"
             :to="list.path"
             tag="div"
@@ -32,7 +32,7 @@
     <transition name="slide-left">
       <router-view/>
     </transition>
-    
+
   </div>
 </template>
 
@@ -58,8 +58,6 @@ export default {
             {title:'Cell - 列表',path:'/Index/Cell'},
             {title:'Radio - 单选',path:'/Index/Cell'},
             {title:'CheckBox - 多选',path:'/Index/Cell'},
-            {title:'Selector - 选择器',path:'/Index/Cell'},
-            {title:'Switch - 开关',path:'/Index/Cell'},
             {title:'Uploader - 图片上传',path:'/Index/Cell'},
             {title:'Datepicker - 日期选择',path:'/Index/Cell'},
             {title:'Citypicker - 地区选择',path:'/Index/Cell'},
@@ -148,7 +146,7 @@ export default {
           &.active
             color #999
       .list-slide__bd
-        border-1px(top, rgba(0,0,0,0.12), 0) 
+        border-1px(top, rgba(0,0,0,0.12), 0)
         overflow hidden
         .list
           padding 18px 14px
