@@ -8,6 +8,7 @@ import {Switch} from './components/switch';
 import {Button} from './components/button';
 import {Input} from './components/input';
 import {Textarea} from './components/textarea';
+import {Select} from './components/select';
 
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
@@ -21,7 +22,7 @@ const install = function (Vue) {
   Vue.component(Button.name, Button);
   Vue.component(Input.name, Input);
   Vue.component(Textarea.name, Textarea);
-
+  Vue.component(Select.name, Select);
 };
 
 if (typeof window !== 'undefined' && window.Vue) {

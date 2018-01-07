@@ -52,7 +52,7 @@ export default {
     border: none;
     width: 100%;
     display: block;
-    height: 75px;
+    min-height: 75px;
     font-size: 16px;
     outline: 0;
     border-radius: 0;

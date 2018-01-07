@@ -1,11 +1,11 @@
 <template>
   <div class="view-page">
       <me-cell-group title="设置Layout">
-          <me-cell-item>
+          <me-cell-item type="label">
               <span slot="left">显示Header</span>
               <me-switch slot="right" v-model="showHeader"></me-switch>
           </me-cell-item>
-          <me-cell-item>
+          <me-cell-item type="label">
               <span slot="left">显示Tabbar</span>
               <me-switch slot="right" v-model="showTab"></me-switch>
           </me-cell-item>
@@ -60,7 +60,7 @@ export default {
   .phone
     width 84%
     height 300px
-    margin 0 auto
+    margin 20px auto
     border 2px solid rgba(0,0,0,0.9)
 
   .layout-item
