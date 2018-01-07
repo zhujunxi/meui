@@ -51,6 +51,7 @@ export default {
     background-color: #dfdfdf;
     -webkit-appearance: none;
     -moz-appearance: none;
+    outline: none;
 }
 
 .me-switch:after, .me-switch:before {
