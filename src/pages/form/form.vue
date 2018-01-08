@@ -8,7 +8,7 @@
           <me-textarea placeholder="请输入备注" :max="500" v-model="value"></me-textarea>
       </me-cell-group>
       <p style="padding:0 20px">
-        <me-button size="large">确定</me-button>
+        <me-button size="large" @click.native="toast">确定</me-button>
       </p>
   </div>
 </template>
@@ -27,7 +27,13 @@ export default {
     };
   },
   methods: {
-
+    toast() {
+      this.$dialog.toast({
+          mes: '提交成功',
+          timeout: 12000,
+          icon: 'success'
+      });
+    }
   },
 }
 </script>
