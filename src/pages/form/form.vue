@@ -28,11 +28,11 @@ export default {
   },
   methods: {
     toast() {
-      this.$dialog.toast({
+      toast({
           mes: '提交成功',
-          timeout: 12000,
+          timeout: 14000,
           icon: 'success'
-      });
+      })
     }
   },
 }

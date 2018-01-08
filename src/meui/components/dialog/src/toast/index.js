@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import {pageScroll} from '../../../../utils/assist';
-import template from './toast.vue';
-const ToastConstructor = Vue.extend(template);
+const ToastConstructor = Vue.extend(require('./toast.vue').default);
 
 const instance = new ToastConstructor({
     el: document.createElement('div')
@@ -31,5 +30,4 @@ const Toast = (options = {}) => {
         instance.closeToast();
     }, instance.timeout + 100);
 };
-console.log(require('./toast.vue'))
 export default Toast;

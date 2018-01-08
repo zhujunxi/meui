@@ -28,6 +28,7 @@ const install = function (Vue) {
   Vue.prototype.$dialog = {
     toast: Toast
   }
+  window.toast = Toast
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
