@@ -1,5 +1,5 @@
 <template>
-  <me-layout :show-navbar="false" :show-tabbar="false">
+  <me-layout :show-navbar="false">
     <router-view/>
     <me-tabbar slot="tabbar" v-if="showTab">
       <me-tabbar-item title="组件" link="/Index" :active="activePath == '/Index'">
@@ -34,7 +34,7 @@ export default {
         }
       }
   },
-  
+
 }
 </script>
 

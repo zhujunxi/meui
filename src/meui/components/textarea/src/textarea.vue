@@ -7,7 +7,7 @@
         v-model="currentValue"
         >
       </textarea>
-      <div class="textarea-counter">{{wordLength}}/{{max}}</div>
+      <div class="textarea-counter"><span>{{wordLength}}</span>/{{max}}</div>
     </div>
   </div>
 </template>
@@ -42,30 +42,32 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-.me-textarea {
-  padding: 8px 16px;
+.me-textarea
   width: 100%;
   background: #FFF;
   box-sizing: border-box;
 
-  textarea {
+  textarea
     border: none;
     width: 100%;
     display: block;
     min-height: 75px;
     font-size: 16px;
+    padding: 8px 16px;
+    box-sizing border-box;
     outline: 0;
     border-radius: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
     overflow: auto;
     resize: none;
-  }
+    word-break break-all
 
-  .textarea-counter {
+  .textarea-counter
     font-size: 14px;
     color: #b2b2b2;
     text-align: right;
-  }
-}
+    padding 4px 16px;
+    span
+      color #333
 </style>

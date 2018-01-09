@@ -77,10 +77,10 @@ export default {
         justify-content space-between
         tap-active()
         &:not(:last-child)
-            border-1px(bottom, rgba(0,0,0,0.12), 20px)
+            border-1px(bottom, rgba(0,0,0,0.12), 16px)
         .me-cell__bd
             display flex
-            justify-content left 
+            justify-content left
             align-items center
         .me-cell__ft
             display flex

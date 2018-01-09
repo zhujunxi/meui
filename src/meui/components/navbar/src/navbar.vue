@@ -31,5 +31,6 @@ export default {
   line-height 50px
   background #FFF
   text-align center
+  z-index 200
   border-1px(bottom,rgba(0,0,0,0.12),0)
 </style>

@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import {pageScroll} from '../../../../utils/assist';
 const ToastConstructor = Vue.extend(require('./toast.vue').default);
-
 const instance = new ToastConstructor({
     el: document.createElement('div')
 });
@@ -15,8 +14,8 @@ ToastConstructor.prototype.closeToast = function () {
     typeof this.callback === 'function' && this.callback();
 };
 
-const Toast = (options = {}) => {
-    instance.mes = options.mes;
+const Toast = (msg, options = {}) => {
+    instance.mes = msg;
     instance.icon = options.icon;
     instance.timeout = ~~options.timeout || 2000;
     instance.callback = options.callback;
