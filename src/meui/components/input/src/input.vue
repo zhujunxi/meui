@@ -104,7 +104,7 @@ export default {
         padding 0px 16px
         justify-content space-between
         &:not(:last-child)
-            border-1px(bottom, rgba(0,0,0,0.12), 20px)
+            border-1px(bottom, rgba(0,0,0,0.12), 16px)
         .me-cell__hd
             display flex
             justify-content center
