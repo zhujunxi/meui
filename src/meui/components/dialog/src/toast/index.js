@@ -6,8 +6,10 @@ const instance = new ToastConstructor({
 });
 
 ToastConstructor.prototype.closeToast = function () {
+    this.visible = false;
     const el = instance.$el;
     el.parentNode && el.parentNode.removeChild(el);
+    console.log(el)
 
     pageScroll.unlock();
 
@@ -19,6 +21,7 @@ const Toast = (msg, options = {}) => {
     instance.icon = options.icon;
     instance.timeout = ~~options.timeout || 2000;
     instance.callback = options.callback;
+    instance.visible = true;
 
     document.body.appendChild(instance.$el);
 
@@ -29,4 +32,5 @@ const Toast = (msg, options = {}) => {
         instance.closeToast();
     }, instance.timeout + 100);
 };
+
 export default Toast;

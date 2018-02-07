@@ -35,13 +35,12 @@ export default {
   },
   methods: {
     toast() {
-      toast('这样也行？')
-      // toast({
-      //     mes: '提交成功12321234',
-      //     callback:() => {
-      //       console.log('binback')
-      //     }
-      // })
+      toast('我是长文本定制提示框',{
+        timeout: 2000,
+        callback:() => {
+          console.log('binback')
+        }
+      })
     }
   },
 }
