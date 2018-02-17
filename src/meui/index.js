@@ -25,9 +25,9 @@ const install = function (Vue) {
   Vue.component(Textarea.name, Textarea);
   Vue.component(Select.name, Select);
 
-  Vue.prototype.$dialog = {
-    toast: Toast
-  }
+  // Vue.prototype.$dialog = {
+  //   toast: Toast
+  // }
   window.toast = Toast
 };
 
