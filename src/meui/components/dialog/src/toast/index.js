@@ -9,7 +9,8 @@ ToastConstructor.prototype.closeToast = function () {
     this.visible = false;
     
     pageScroll.unlock();
-    setTimeout(() => {
+    const closeTimer = setTimeout(() => {
+        clearTimeout(closeTimer);
         const el = instance.$el;
         el.parentNode && el.parentNode.removeChild(el);
     

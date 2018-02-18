@@ -39,6 +39,10 @@ const Modal = (options = {}) => {
     document.body.appendChild(instance.$el);
 
     pageScroll.lock();
+
+    window.addEventListener('hashchange', () => {
+        instance.closeModal('cancel')
+    })
 };
 
 export default Modal;
