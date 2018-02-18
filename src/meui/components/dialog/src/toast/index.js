@@ -28,6 +28,9 @@ const Toast = (msg, options = {}) => {
     document.body.appendChild(instance.$el);
 
     pageScroll.lock();
+    window.addEventListener("hashchange", ()=>{
+        instance.closeToast() 
+    });
 
     const timer = setTimeout(() => {
         clearTimeout(timer);
