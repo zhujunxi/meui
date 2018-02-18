@@ -1,6 +1,6 @@
 import './stylus/index.styl';
 
-import {Toast} from './components/dialog';
+import {Toast, Modal} from './components/dialog';
 import {Layout} from './components/layout';
 import {NavBar} from './components/navbar';
 import {TabBar, TabBarItem} from './components/tabbar';
@@ -28,7 +28,10 @@ const install = function (Vue) {
   // Vue.prototype.$dialog = {
   //   toast: Toast
   // }
-  window.toast = Toast
+  window.me = {
+    showToast: Toast,
+    showModal: Modal,
+  }
 };
 
 if (typeof window !== 'undefined' && window.Vue) {

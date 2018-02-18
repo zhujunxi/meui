@@ -36,7 +36,7 @@ export default {
   methods: {
     toast() {
 
-      toast('提交成功',{
+      me.showToast('提交成功',{
         type:'success',
       })
     }

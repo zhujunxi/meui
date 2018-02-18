@@ -5,6 +5,7 @@ import Index from '@/pages/index/index';
   import Cell from '@/pages/cell/cell';
   import Form from '@/pages/form/form';
   import Button from '@/pages/button/button';
+  import Modal from '@/pages/modal/modal';
 import Api from '@/pages/api/api';
 
 
@@ -18,6 +19,7 @@ var router = new Router({
       {path: 'Cell',component: Cell,meta:{title:'Cell'}},
       {path: 'Form',component: Form,meta:{title:'Form'}},
       {path: 'Button',component: Button,meta:{title:'Button'}},
+      {path: 'Modal',component: Modal,meta:{title:'Modal'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]
