@@ -35,11 +35,9 @@ export default {
   },
   methods: {
     toast() {
-      toast('我是长文本定制提示框',{
-        timeout: 2000,
-        callback:() => {
-          console.log('binback')
-        }
+
+      toast('提交成功',{
+        type:'success',
       })
     }
   },

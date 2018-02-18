@@ -7,18 +7,20 @@ const instance = new ToastConstructor({
 
 ToastConstructor.prototype.closeToast = function () {
     this.visible = false;
-    const el = instance.$el;
-    el.parentNode && el.parentNode.removeChild(el);
-    console.log(el)
-
+    
     pageScroll.unlock();
-
-    typeof this.callback === 'function' && this.callback();
+    setTimeout(() => {
+        const el = instance.$el;
+        el.parentNode && el.parentNode.removeChild(el);
+    
+        typeof this.callback === 'function' && this.callback();
+    }, 300)
+    
 };
 
 const Toast = (msg, options = {}) => {
     instance.mes = msg;
-    instance.icon = options.icon;
+    instance.type = options.type;
     instance.timeout = ~~options.timeout || 2000;
     instance.callback = options.callback;
     instance.visible = true;
