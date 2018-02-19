@@ -13,7 +13,7 @@ LoadingConstructor.prototype.open = (msg) => {
     document.body.appendChild(instance.$el);
     pageScroll.lock();
     window.addEventListener("hashchange", ()=>{
-        instance.closeToast() 
+        instance.close() 
     });
 }
 
