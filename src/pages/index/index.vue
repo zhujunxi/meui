@@ -68,7 +68,7 @@ export default {
           list:[
             {title:'Toast - 吐司提示',path:'/Index/Toast'},
             {title:'Modal - 对话框',path:'/Index/Modal'},
-            {title:'Actionsheet - 操作表',path:'/Index/Cell'},
+            {title:'Actionsheet - 操作表',path:'/Index/ActionSheet'},
             {title:'Loading - 加载',path:'/Index/Loading'},
           ]
         },{

@@ -1,6 +1,5 @@
 import './stylus/index.styl';
 
-import {Toast, Modal, Loading} from './components/dialog';
 import {Layout} from './components/layout';
 import {NavBar} from './components/navbar';
 import {TabBar, TabBarItem} from './components/tabbar';
@@ -10,6 +9,9 @@ import {Button} from './components/button';
 import {Input} from './components/input';
 import {Textarea} from './components/textarea';
 import {Select} from './components/select';
+
+import {Toast, Modal, Loading} from './components/dialog';
+import ActionSheet from './components/actionsheet';
 
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
@@ -25,14 +27,18 @@ const install = function (Vue) {
   Vue.component(Textarea.name, Textarea);
   Vue.component(Select.name, Select);
 
+  // Vue.component(ActionSheet.name, ActionSheet);
+
   // Vue.prototype.$dialog = {
   //   toast: Toast
   // }
+  console.log(ActionSheet)
   window.me = {
     showToast: Toast,
     showModal: Modal,
     showLoading: Loading.open,
     hideLoading: Loading.close,
+    showActionSheet: ActionSheet.open,
   }
 };
 
