@@ -7,6 +7,7 @@ import Index from '@/pages/index/index';
   import Button from '@/pages/button/button';
   import Modal from '@/pages/modal/modal';
   import Toast from '@/pages/toast/toast';
+  import Loading from '@/pages/loading/loading';
 import Api from '@/pages/api/api';
 
 
@@ -22,6 +23,7 @@ var router = new Router({
       {path: 'Button',component: Button,meta:{title:'Button'}},
       {path: 'Modal',component: Modal,meta:{title:'Modal'}},
       {path: 'Toast',component: Toast,meta:{title:'Toast'}},
+      {path: 'Loading',component: Loading,meta:{title:'Loading'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]

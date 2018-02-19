@@ -1,6 +1,6 @@
 import './stylus/index.styl';
 
-import {Toast, Modal} from './components/dialog';
+import {Toast, Modal, Loading} from './components/dialog';
 import {Layout} from './components/layout';
 import {NavBar} from './components/navbar';
 import {TabBar, TabBarItem} from './components/tabbar';
@@ -31,6 +31,8 @@ const install = function (Vue) {
   window.me = {
     showToast: Toast,
     showModal: Modal,
+    showLoading: Loading.open,
+    hideLoading: Loading.close,
   }
 };
 
