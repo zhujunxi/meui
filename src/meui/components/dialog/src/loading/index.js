@@ -20,8 +20,8 @@ LoadingConstructor.prototype.open = (msg) => {
 LoadingConstructor.prototype.close = () => {
     instance.visible = false;
     pageScroll.unlock();
-    const closeTimer = setTimeout(() => {
-        clearTimeout(closeTimer);
+    const closeLoadingTimer = setTimeout(() => {
+        clearTimeout(closeLoadingTimer);
         const el = instance.$el;
         el.parentNode && el.parentNode.removeChild(el);
     }, 300)

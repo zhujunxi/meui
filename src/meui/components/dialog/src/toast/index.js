@@ -9,8 +9,8 @@ ToastConstructor.prototype.closeToast = function () {
     this.visible = false;
     
     pageScroll.unlock();
-    const closeTimer = setTimeout(() => {
-        clearTimeout(closeTimer);
+    const closeToastTimer = setTimeout(() => {
+        clearTimeout(closeToastTimer);
         const el = instance.$el;
         el.parentNode && el.parentNode.removeChild(el);
     
@@ -33,8 +33,8 @@ const Toast = (msg, options = {}) => {
         instance.closeToast() 
     });
 
-    const timer = setTimeout(() => {
-        clearTimeout(timer);
+    const toastTimer = setTimeout(() => {
+        clearTimeout(toastTimer);
         instance.closeToast();
     }, instance.timeout + 100);
 };

@@ -9,7 +9,8 @@ ModalConstructor.prototype.closeModal = function (type) {
     this.visible = false;
     
     pageScroll.unlock();
-    setTimeout(() => {
+    const modalTimer = setTimeout(() => {
+        clearTimeout(modalTimer)
         const el = instance.$el;
         el.parentNode && el.parentNode.removeChild(el);
         switch(type) {

@@ -19,7 +19,8 @@ export default {
   methods: {
     confirm() {
       me.showLoading()
-      setTimeout(() => {
+      const showLoadingTimer = setTimeout(() => {
+          clearTimeout(showLoadingTimer)
           me.hideLoading()
       }, this.timeout)
     }

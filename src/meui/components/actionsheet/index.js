@@ -22,8 +22,8 @@ ActionSheetConstructor.prototype.open = (options = {}) => {
 ActionSheetConstructor.prototype.close = () => {
     instance.visible = false;
     
-    const closeTimer = setTimeout(() => {
-        clearTimeout(closeTimer);
+    const closeActionSheetTimer = setTimeout(() => {
+        clearTimeout(closeActionSheetTimer);
         const el = instance.$el;
         el.parentNode && el.parentNode.removeChild(el);
         

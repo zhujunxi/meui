@@ -42,7 +42,7 @@ export default {
           type:type,
           timeout:this.timeout,
           callback:() => {
-              this.showFun ? me.showToast('我是回掉') : ''
+              this.showFun ? me.showToast('执行回调函数') : ''
           }
       })
     }
