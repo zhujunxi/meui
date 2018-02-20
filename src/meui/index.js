@@ -4,6 +4,9 @@ import {Layout} from './components/layout';
 import {NavBar} from './components/navbar';
 import {TabBar, TabBarItem} from './components/tabbar';
 import {CellGroup, CellItem} from './components/cell';
+
+import {Scroll} from './components/scroll';
+
 import {Switch} from './components/switch';
 import {Button} from './components/button';
 import {Input} from './components/input';
@@ -21,6 +24,8 @@ const install = function (Vue) {
   Vue.component(CellGroup.name, CellGroup);
   Vue.component(CellItem.name, CellItem);
 
+  Vue.component(Scroll.name, Scroll);
+
   Vue.component(Switch.name, Switch);
   Vue.component(Button.name, Button);
   Vue.component(Input.name, Input);
@@ -32,7 +37,7 @@ const install = function (Vue) {
   // Vue.prototype.$dialog = {
   //   toast: Toast
   // }
-  console.log(ActionSheet)
+
   window.me = {
     showToast: Toast,
     showModal: Modal,

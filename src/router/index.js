@@ -9,6 +9,7 @@ import Index from '@/pages/index/index';
   import Toast from '@/pages/toast/toast';
   import Loading from '@/pages/loading/loading';
   import ActionSheet from '@/pages/actionsheet/actionsheet';
+  import PullRefresh from '@/pages/pull-refresh/pull-refresh';
 import Api from '@/pages/api/api';
 
 
@@ -26,6 +27,7 @@ var router = new Router({
       {path: 'Toast',component: Toast,meta:{title:'Toast'}},
       {path: 'Loading',component: Loading,meta:{title:'Loading'}},
       {path: 'ActionSheet',component: ActionSheet,meta:{title:'ActionSheet'}},
+      {path: 'PullRefresh',component: PullRefresh,meta:{title:'PullRefresh'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]
