@@ -1,18 +1,20 @@
 <template>
-  <div class="loading-icon"></div>
+  <div class="loading-icon" :style="`height:${size}px;width:${size}px;`"></div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
     props: {
+      size:{
+        type: Number,
+        default: 20
+      }
     }
   }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .loading-icon
-  width: 30px;
-  height: 30px;
   display: inline-block;
   vertical-align: middle;
   animation: weuiLoading 1s steps(12, end) infinite;

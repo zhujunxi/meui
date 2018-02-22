@@ -1,31 +1,27 @@
 <template>
   <div class="scroll">
-    <div class="bubble-wrap" :style="`height:${bubbleY}px`">
-      <bubble :y="bubbleY"></bubble>
-      <!-- <loading v-if="isPullingDown"></loading> -->
+    <div class="bubble-wrap" v-if="!isPullingDown" :style="`height:${bubbleY}px`">
+      <span class="bubble-text" >{{bubbleY > 100?'松手刷新':'继续下拉'}}</span>
+      <bubble :y="bubbleY - 50"></bubble>
     </div>
+    <div class="loading-wrap" v-if="isPullingDown">
+      <loading></loading>
+      <span class="refresh-text">正在刷新{{bubbleY}}</span>
+    </div>
+    <div class="tips" v-if="isPullingUp">刷新成功</div>
     <div class="wrapper" ref="wrapper">
       <slot></slot>
     </div>
   </div>
-  
-
 </template>
 
 <script>
 import BScroll from "better-scroll";
 import Bubble from "./bubble.vue";
 import Loading from "./loading.vue";
+import Toast from "../../dialog/src/toast"
 export default {
   name: "me-scroll",
-  components: {
-    Bubble, Loading
-  },
-  data() {
-    return {
-      isPullingDown: false,
-    }
-  },
   props: {
     /** 
      * 1 滚动的时候会派发scroll事件，会截流。 
@@ -55,7 +51,7 @@ export default {
      */ 
     listenScroll: { 
       type: Boolean, 
-      default: false 
+      default: true 
     },
     /**
      * 列表的数据 
@@ -96,13 +92,16 @@ export default {
   data() {
     return {
       bubbleY:0,
+      isPullingDown: false,
+      isPullingUp:false,
+      
     }
   },
   mounted() {
     // 保证在DOM渲染完毕后初始化better-scroll 
-    setTimeout(() => { 
-      this._initScroll() 
-    }, 20)
+    this.$nextTick(() => {
+      this._initScroll()
+    })
   },
   methods: {
     _initScroll() { 
@@ -111,34 +110,53 @@ export default {
       this.scroll = new BScroll(this.$refs.wrapper, { 
         probeType: this.probeType, 
         click: this.click, 
-        scrollX: this.scrollX 
+        scrollX: this.scrollX,
+        pullDownRefresh: {
+          threshold: 100,
+          stop: 46
+        },
+        pullUpLoad: {
+          threshold: -50
+        },
       }) 
       // 是否派发滚动事件 
       if (this.listenScroll) { 
         let me = this 
         this.scroll.on('scroll', (pos) => { 
-          console.log(pos)
           this.bubbleY = pos.y
-          me.$emit('scroll', pos) 
+          //me.$emit('scroll', pos) 
         }) 
       } 
       // 是否派发滚动到底部事件，用于上拉加载 
       if (this.pullup) { 
-        this.scroll.on('scrollEnd', () => { 
+        // this.scroll.on('pullingUp', () => {
+        //   this.isPullingUp = true
+        //   this.$emit('pullup')
+        // })
+        this.scroll.on('scrollEnd', (pos) => { 
           // 滚动到底部 
-          if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
-             this.$emit('scrollToEnd') 
-          } 
+          // console.log('scrollEnd')
+          // console.log(pos)
+          // console.log(this.scroll.maxScrollY)
+          // if (this.scroll.y <= (this.scroll.maxScrollY + 102)) {
+          //   this.isPullingUp = true
+          //   this.$emit('pullup') 
+          // } 
         }) 
       } 
       // 是否派发顶部下拉事件，用于下拉刷新 
       if (this.pulldown) {
         this.scroll.on('touchEnd', (pos) => { 
-          // 下拉动作 
-          console.log(pos)
-          if (pos.y > 50) {
+          console.log(pos.y)
+          // 下拉动作          
+          if (pos.y > 100) {
              this.$emit('pulldown') 
-          } 
+             this.isPullingDown = true
+             this.bubbleY = 46
+          } else if(pos.y <= (this.scroll.maxScrollY + 100)){
+             this.isPullingUp = true
+             this.$emit('pullup') 
+          }
         }) 
       } 
       // 是否派发列表滚动开始的事件 
@@ -167,14 +185,29 @@ export default {
     scrollToElement() { 
       // 代理better-scroll的scrollToElement方法 
       this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments) 
-    }
+    },
   },
   watch: {
     // 监听数据的变化，延时refreshDelay时间后调用refresh方法重新计算，保证滚动效果正常 
     data() { 
       setTimeout(() => { 
-        this.refresh() 
-    }, this.refreshDelay) }
+        if(this.isPullingDown){
+          this.refresh() 
+          this.bubbleY = 0
+          this.isPullingDown = false
+          Toast('更新成功',{
+            type:'success'
+          })
+        }else if(this.isPullingUp){
+          this.refresh()
+          this.isPullingUp = false
+          console.log('上拉加载成功！')
+        }
+      }, this.refreshDelay) 
+    }
+  },
+  components: {
+    Bubble, Loading, Toast
   }
 };
 </script>
@@ -188,15 +221,27 @@ export default {
   height: 100%;
 }
 
-.bubble-wrap{
+.bubble-wrap
   position fixed
   top 0px
   left 0px
   width 100%
   height 0px
+  min-height 46px
   display flex
   justify-content center
   align-items center
   background #F00
+  display flex
+  flex-direction column
+  .bubble-text
+    height 26px
+    line-height 26px
+    color #CCC
+    font-size 12px
+    .refresh-text
+      display flex
+bubble{
+  background green
 }
 </style>
