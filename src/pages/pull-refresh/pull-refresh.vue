@@ -1,25 +1,38 @@
 <template>
   <div class="view-page">
-      <me-scroll>
+    <me-scroll
+      :data="arr"
+      :pulldown="pulldown"
+      @pulldown="loadData"
+      >
+      <div class="content">
         <div class="item" v-for="(item, index) in arr" :key="index">{{item}}</div>
-
-      </me-scroll>
+      </div>
+    </me-scroll>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      arr:[0,1,2]
+      arr:['a','b','c'],
+      pulldown: true,
+      scrollY:20,
     }
   },
   created() {
-    let brr = [];
-    for(let i =0;i<1000;i++) {
-      brr.push(i)
+    this.loadData()
+  },
+  methods: {
+    loadData() {
+      let brr = [];
+      for(let i = 0;i < 12; i++) {
+        brr.push(i)
+      }
+      let arr = this.arr;
+      this.arr = arr.concat(brr)
     }
-    this.arr = brr
-  }
+  },
 }
 </script>
 <style lang="stylus" >
@@ -28,6 +41,6 @@ export default {
     text-align center
     font-size 20px
     padding 10px 0
-    background #cccccc
-    margin 5px 0
+    background rgba(255,255,0,.6)
+    margin-bottom 10px
 </style>
