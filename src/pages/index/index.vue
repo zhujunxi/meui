@@ -46,8 +46,7 @@ export default {
           list:[
             {title:'Layout - 布局',path:'/Index/Layout'},
             {title:'Flex - 弹性布局',path:'/Index/Cell'},
-            {title:'pull-refresh - 下拉加载',path:'/Index/PullRefresh'},
-            {title:'infintit - 无限滚动',path:'/Index/Cell'},
+            {title:'pull-refreshData - 下拉刷新与滚动加载',path:'/Index/PullRefresh'}
           ]
         },{
           title:'表单组件',

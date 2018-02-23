@@ -21,7 +21,7 @@
         return Math.max(0, Math.min(this.y * this.ratio, this.maxDistance))
       },
       style() {
-        return `width:${this.width / this.ratio}px;height:${this.height / this.ratio}px;background:green;`
+        return `width:${this.width / this.ratio}px;height:${this.height / this.ratio}px;`
       }
     },
     created() {

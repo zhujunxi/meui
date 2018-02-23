@@ -1,17 +1,33 @@
 <template>
-  <div class="scroll">
-    <div class="bubble-wrap" v-if="!isPullingDown" :style="`height:${bubbleY}px`">
-      <span class="bubble-text" >{{bubbleY > 100?'松手刷新':'继续下拉'}}</span>
-      <bubble :y="bubbleY - 50"></bubble>
+  <div ref="wrapper" class="scroll-wrapper">
+    <div class="scroll-content">
+      <div ref="listWrapper" class="scroll-list-wrapper">
+        <slot></slot>
+        <slot name="pullup">
+          <div class="pullup-wrapper" v-if="options.pullUpLoad">
+            <div class="before-trigger" v-if="!isPullingUp">
+              <span>{{ pullUpTxt }}</span>
+            </div>
+            <div class="after-trigger" v-else>
+              <loading></loading>
+            </div>
+          </div>
+        </slot>
+      </div>
     </div>
-    <div class="loading-wrap" v-if="isPullingDown">
-      <loading></loading>
-      <span class="refresh-text">正在刷新{{bubbleY}}</span>
-    </div>
-    <div class="tips" v-if="isPullingUp">刷新成功</div>
-    <div class="wrapper" ref="wrapper">
-      <slot></slot>
-    </div>
+    <slot name="pulldown">
+      <div class="pulldown-wrapper" :style="pullDownStyle" v-if="options.pullDownRefresh">
+        <div class="before-trigger" v-if="beforePullDown">
+          <bubble :y="bubbleY"></bubble>
+        </div>
+        <div class="after-trigger" v-else>
+          <div v-if="isPullingDown" class="loading">
+            <loading></loading>
+          </div>
+          <div v-else class="refresh-text"><span>{{ refreshTxt }}</span></div>
+        </div>
+      </div>
+    </slot>
   </div>
 </template>
 
@@ -20,70 +36,34 @@ import BScroll from "better-scroll";
 import Bubble from "./bubble.vue";
 import Loading from "./loading.vue";
 import Toast from "../../dialog/src/toast"
+import {getRect} from "../../../utils/assist"
+
+const DEFAULT_REFRESH_TXT = '刷新成功'
+
+const DEFAULT_OPTIONS = {
+  observeDOM: true,
+  click: true,
+  probeType: 1,
+  scrollbar: false,
+  pullDownRefresh: false,
+  pullUpLoad: false
+}
+
 export default {
   name: "me-scroll",
   props: {
-    /** 
-     * 1 滚动的时候会派发scroll事件，会截流。 
-     * 2 滚动的时候实时派发scroll事件，不会截流。
-     * 3 除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件 
-     */ 
-    probeType: {
-      type: Number,
-      default: 2
-    },
-    /** 
-     * 点击列表是否派发click事件 
-     */ 
-    click: { 
-     type: Boolean, 
-     default: true 
-    },
-    /**
-     * 是否开启横向滚动 
-     */ 
-    scrollX: { 
-      type: Boolean, 
-      default: false 
-    },
-    /**
-     * 是否派发滚动事件 
-     */ 
-    listenScroll: { 
-      type: Boolean, 
-      default: true 
-    },
-    /**
-     * 列表的数据 
-     */ 
     data: { 
       type: Array, 
-      default: null 
+      default() {
+        return []
+      } 
     },
-    /**
-     * 是否派发滚动到底部的事件，用于上拉加载 
-     */ 
-    pullup: {
-      type: Boolean,
-      default: false
+    options: {
+      type: Object,
+      default() {
+        return {}
+      }
     },
-    /** 
-     * 是否派发顶部下拉的事件，用于下拉刷新 
-     */ 
-    pulldown: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * 是否派发列表滚动开始的事件 
-     */ 
-    beforeScroll: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * 当数据更新后，刷新scroll的延时。 
-     */ 
     refreshDelay: {
       type: Number,
       default: 20
@@ -91,118 +71,120 @@ export default {
   },
   data() {
     return {
-      bubbleY:0,
+      beforePullDown: true,
       isPullingDown: false,
       isPullingUp:false,
-      
+      pullUpDirty: true,
+      bubbleY: 0,
+      pullDownStyle: ''
     }
   },
+  computed: {
+    refreshTxt () {
+      const pullDownRefresh = this.options.pullDownRefresh
+      return pullDownRefresh && pullDownRefresh.txt || DEFAULT_REFRESH_TXT
+    },
+    pullUpTxt () {
+      const pullUpLoad = this.options.pullUpLoad
+      const moreTxt = pullUpLoad.moreTxt || ''
+      const noMoreTxt = pullUpLoad.noMoreTxt || ''
+      return this.pullUpDirty ? moreTxt : noMoreTxt
+    }
+  },
+  created() {
+    this.pullDownInitTop = -50
+  },
   mounted() {
-    // 保证在DOM渲染完毕后初始化better-scroll 
     this.$nextTick(() => {
       this._initScroll()
     })
   },
   methods: {
     _initScroll() { 
-      if (!this.$refs.wrapper) { return } 
+      if (!this.$refs.wrapper) { 
+        return 
+      } 
+      this._calculateMinHeight()
+
       // better-scroll的初始化 
-      this.scroll = new BScroll(this.$refs.wrapper, { 
-        probeType: this.probeType, 
-        click: this.click, 
-        scrollX: this.scrollX,
-        pullDownRefresh: {
-          threshold: 100,
-          stop: 46
-        },
-        pullUpLoad: {
-          threshold: -50
-        },
-      }) 
-      // 是否派发滚动事件 
-      if (this.listenScroll) { 
-        let me = this 
-        this.scroll.on('scroll', (pos) => { 
-          this.bubbleY = pos.y
-          //me.$emit('scroll', pos) 
-        }) 
-      } 
-      // 是否派发滚动到底部事件，用于上拉加载 
-      if (this.pullup) { 
-        // this.scroll.on('pullingUp', () => {
-        //   this.isPullingUp = true
-        //   this.$emit('pullup')
-        // })
-        this.scroll.on('scrollEnd', (pos) => { 
-          // 滚动到底部 
-          // console.log('scrollEnd')
-          // console.log(pos)
-          // console.log(this.scroll.maxScrollY)
-          // if (this.scroll.y <= (this.scroll.maxScrollY + 102)) {
-          //   this.isPullingUp = true
-          //   this.$emit('pullup') 
-          // } 
-        }) 
-      } 
-      // 是否派发顶部下拉事件，用于下拉刷新 
-      if (this.pulldown) {
-        this.scroll.on('touchEnd', (pos) => { 
-          console.log(pos.y)
-          // 下拉动作          
-          if (pos.y > 100) {
-             this.$emit('pulldown') 
-             this.isPullingDown = true
-             this.bubbleY = 46
-          } else if(pos.y <= (this.scroll.maxScrollY + 100)){
-             this.isPullingUp = true
-             this.$emit('pullup') 
+      let options = Object.assign({}, DEFAULT_OPTIONS, this.options)
+      this.scroll = new BScroll(this.$refs.wrapper, options)
+      
+      //是否派发下拉刷新
+      if(this.options.pullDownRefresh) {
+        this.scroll.on('pullingDown',() => {
+          this.beforePullDown = false
+          this.isPullingDown = true
+          this.$emit('pulldown')
+        })
+
+        this.scroll.on('scroll', (pos) => {
+          if(this.beforePullDown){
+            this.bubbleY = Math.max(0, pos.y + this.pullDownInitTop)
+            this.pullDownStyle = `top:${Math.min(pos.y + this.pullDownInitTop, 10)}px`
+          }else {
+            this.bubbleY = 0
+            this.pullDownStyle = `top:${Math.min(pos.y - 30, 10)}px`
           }
-        }) 
-      } 
-      // 是否派发列表滚动开始的事件 
-      if (this.beforeScroll) {
-         this.scroll.on('beforeScrollStart', () => { 
-           this.$emit('beforeScroll') 
-         })  
+        })
+      }
+
+      //是否派发上拉加载
+      console.log(this.options.pullUpLoad)
+      if(this.options.pullUpLoad){
+        this.scroll.on('pullingUp', () => {
+          this.isPullingUp = true
+          this.$emit('pullup')
+        })
       }
     },
-    disable() { 
-      // 代理better-scroll的disable方法 
-      this.scroll && this.scroll.disable() 
-    }, 
-    enable() { 
-      // 代理better-scroll的enable方法 
-      this.scroll && this.scroll.enable() 
-    }, 
-    refresh() { 
-      // 代理better-scroll的refresh方法 
-      this.scroll && this.scroll.refresh() 
-    }, 
-    scrollTo() { 
-      // 代理better-scroll的scrollTo方法 
-      this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments) 
-    }, 
-    scrollToElement() { 
-      // 代理better-scroll的scrollToElement方法 
-      this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments) 
+    refresh() {
+      this._calculateMinHeight()
+      this.scroll && this.scroll.refresh()
     },
+    forceUpdate(dirty) {
+      if(this.options.pullDownRefresh && this.isPullingDown){
+        this.isPullingDown = false
+        this._reboundPullDown().then(() => {
+          this._afterPullDown(dirty)
+        })
+      } else if (this.options.pullUpLoad && this.isPullingUp) {
+          this.isPullingUp = false
+          this.scroll.finishPullUp()
+          this.pullUpDirty = dirty
+          dirty && this.refresh()
+        } else {
+          dirty && this.refresh()
+        }
+    },
+    _calculateMinHeight() {
+      if (this.$refs.listWrapper && (this.options.pullDownRefresh || this.options.pullUpLoad)) {
+        this.$refs.listWrapper.style.minHeight = `${getRect(this.$refs.wrapper).height + 1}px`
+      }
+    },
+    _reboundPullDown() {
+      const {stopTime = 600} = this.options.pullDownRefresh
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          this.scroll.finishPullDown()
+          this.isPullingDown = false
+          resolve()
+        }, stopTime)
+      })
+    },
+    _afterPullDown(dirty) {
+      setTimeout(() => {
+        this.pullDownStyle = `top:${this.pullDownInitTop}px`
+        this.beforePullDown = true
+        dirty && this.refresh()
+      }, this.scroll.options.bounceTime)
+    }
   },
   watch: {
     // 监听数据的变化，延时refreshDelay时间后调用refresh方法重新计算，保证滚动效果正常 
     data() { 
       setTimeout(() => { 
-        if(this.isPullingDown){
-          this.refresh() 
-          this.bubbleY = 0
-          this.isPullingDown = false
-          Toast('更新成功',{
-            type:'success'
-          })
-        }else if(this.isPullingUp){
-          this.refresh()
-          this.isPullingUp = false
-          console.log('上拉加载成功！')
-        }
+        this.forceUpdate(true)
       }, this.refreshDelay) 
     }
   },
@@ -214,34 +196,37 @@ export default {
 
 <style lang='stylus' scoped>
 @import '../../../stylus/mixin.styl';
-.scroll
+.scroll-wrapper
+  position relative
   height 100%
-  background #CCC
-.wrapper {
-  height: 100%;
-}
-
-.bubble-wrap
-  position fixed
-  top 0px
-  left 0px
-  width 100%
-  height 0px
-  min-height 46px
-  display flex
-  justify-content center
-  align-items center
-  background #F00
-  display flex
-  flex-direction column
-  .bubble-text
-    height 26px
-    line-height 26px
-    color #CCC
-    font-size 12px
+  overflow hidden
+  background #F8F8F8
+  .scroll-content 
+    position relative
+    z-index 1
+  .pullup-wrapper
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    .before-trigger
+      padding: 22px 0
+      min-height: 1em
+    .after-trigger
+      padding: 19px 0
+      
+.pulldown-wrapper
+  position: absolute
+  width: 100%
+  left: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  transition: all
+  .after-trigger
+    margin-top: 5px
+    width 100%
+    text-align center
     .refresh-text
-      display flex
-bubble{
-  background green
-}
+      font-size 14px
 </style>
