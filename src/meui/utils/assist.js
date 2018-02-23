@@ -120,4 +120,24 @@ const scrollTop = function (el, from = 0, to, duration = 500, callback) {
   scroll(from, to, step);
 };
 
-export {pageScroll, preventScroll, isIOS, isColor, getScrollview, checkInview, addClass, removeClass, scrollTop};
+const getRect = function (el) {
+    return {
+        top: el.offsetTop,
+        left: el.offsetLeft,
+        width: el.offsetWidth,
+        height: el.offsetHeight
+    }
+}
+
+export {
+    pageScroll, 
+    preventScroll, 
+    isIOS, 
+    isColor, 
+    getScrollview, 
+    checkInview, 
+    addClass, 
+    removeClass, 
+    scrollTop,
+    getRect,
+};
