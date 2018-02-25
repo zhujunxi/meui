@@ -10,6 +10,8 @@ import Index from '@/pages/index/index';
   import Loading from '@/pages/loading/loading';
   import ActionSheet from '@/pages/actionsheet/actionsheet';
   import PullRefresh from '@/pages/pull-refresh/pull-refresh';
+
+  import CityPicker from '@/pages/cityPicker/cityPicker';
 import Api from '@/pages/api/api';
 
 
@@ -28,12 +30,13 @@ var router = new Router({
       {path: 'Loading',component: Loading,meta:{title:'Loading'}},
       {path: 'ActionSheet',component: ActionSheet,meta:{title:'ActionSheet'}},
       {path: 'PullRefresh',component: PullRefresh,meta:{title:'PullRefresh'}},
+      {path: 'CityPicker',component: CityPicker,meta:{title:'CityPicker'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]
 })
 
-router.beforeEach((to, from, next) => { 
+router.beforeEach((to, from, next) => {
   //修改页面title
   document.title = 'MEUI - ' + to.meta.title;
   next();

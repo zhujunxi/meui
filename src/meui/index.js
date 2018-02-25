@@ -16,6 +16,8 @@ import {Select} from './components/select';
 import {Toast, Modal, Loading} from './components/dialog';
 import ActionSheet from './components/actionsheet';
 
+import {CityPicker} from './components/cityPicker';
+
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
   Vue.component(NavBar.name, NavBar);
@@ -31,6 +33,8 @@ const install = function (Vue) {
   Vue.component(Input.name, Input);
   Vue.component(Textarea.name, Textarea);
   Vue.component(Select.name, Select);
+
+  Vue.component(CityPicker.name, CityPicker);
 
   // Vue.component(ActionSheet.name, ActionSheet);
 

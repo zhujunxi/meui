@@ -59,7 +59,7 @@ export default {
             {title:'CheckBox - 多选',path:'/Index/Cell'},
             {title:'Uploader - 图片上传',path:'/Index/Cell'},
             {title:'Datepicker - 日期选择',path:'/Index/Cell'},
-            {title:'Citypicker - 地区选择',path:'/Index/Cell'},
+            {title:'Citypicker - 地区选择',path:'/Index/CityPicker'},
           ]
         },{
           title:'操作反馈',
