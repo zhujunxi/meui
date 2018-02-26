@@ -1,10 +1,11 @@
 <template>
   <div class="picker">
+    {{selectedIndex}}
     <div class="picker-panel">
       <div class="picker-content">
+        <div class="mask-top"></div>
+        <div class="mask-bottom"></div>
         <div class="wheel-wrapper" ref="wheelWrapper">
-          <div class="mask-top border-bottom-1px"></div>
-          <div class="mask-bottom border-top-1px"></div>
           <div class="wheel" v-for="data in pickerData">
             <ul class="wheel-scroll">
               <li v-for="item in data" class="wheel-item">{{item.text}}</li>
@@ -57,9 +58,13 @@ import BScroll from 'better-scroll'
       _createWheel(wheelWrapper, i) {
         if (!this.wheels[i]) {
           this.wheels[i] = new BScroll(wheelWrapper.children[i], {
+            bounce: false,
             wheel: {
               selectedIndex: this.pickerSelectedIndex[i],
-              /** 默认值就是下面配置的两个，为了展示二者的作用，这里再配置一下 */
+              /** 下面配置均为默认值*/
+              selectedIndex: 0,
+              rotate: 25,
+              adjustTime: 100,
               wheelWrapperClass: 'wheel-scroll',
               wheelItemClass: 'wheel-item'
             },
@@ -72,6 +77,16 @@ import BScroll from 'better-scroll'
           this.wheels[i].refresh()
         }
         return this.wheels[i]
+      },
+      scrollTo(index, dist) {
+        const wheel = this.wheels[index]
+        this.pickerSelectedIndex[index] = dist
+        wheel.wheelTo(dist)
+      }
+    },
+    watch: {
+      data(newData) {
+        this.setData(newData)
       }
     }
   }
@@ -103,11 +118,12 @@ flex-fix()
     left 0
     z-index 600
     width 100%
-    height 237px
+    // height 237px
+    padding 24px 0
     background #FFF
     .picker-content
       position relative
-      top 20px
+      // top 20px
       .mask-top, .mask-bottom
         z-index 10
         width 100%
@@ -118,10 +134,12 @@ flex-fix()
         position absolute
         top 0
         background linear-gradient(to top, rgba(255,255,255,.4), rgba(255,255,255,.8))
+        border-bottom 1px solid #F1F1F1
       .mask-bottom
         position absolute
         bottom 1px
         background linear-gradient(to bottom, rgba(255,255,255,.4), rgba(255,255,255,.8))
+        border-top 1px solid #F1F1F1
       .wheel-wrapper
         display flex
         padding 0 16px
