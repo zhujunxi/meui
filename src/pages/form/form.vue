@@ -13,7 +13,7 @@
           <me-textarea placeholder="多行文本框" :max="500" v-model="value"></me-textarea>
       </me-cell-group>
       <p style="padding:0 20px">
-        <me-button size="large" @click.native="toast">确定</me-button>
+        <me-button size="large" @click.native="confirm">确定</me-button>
       </p>
   </div>
 </template>
@@ -34,8 +34,7 @@ export default {
     };
   },
   methods: {
-    toast() {
-
+    confirm() {
       me.showToast('提交成功',{
         type:'success',
       })
