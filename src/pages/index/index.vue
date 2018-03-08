@@ -45,7 +45,7 @@ export default {
           active:false,
           list:[
             {title:'Layout - 布局',path:'/Index/Layout'},
-            {title:'Flex - 弹性布局',path:'/Index/Cell'},
+            {title:'Flex - 弹性布局',path:'/Index/Flex'},
             {title:'pull-refreshData - 下拉刷新与滚动加载',path:'/Index/PullRefresh'}
           ]
         },{

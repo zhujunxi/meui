@@ -10,6 +10,7 @@ import Index from '@/pages/index/index';
   import Loading from '@/pages/loading/loading';
   import ActionSheet from '@/pages/actionsheet/actionsheet';
   import PullRefresh from '@/pages/pull-refresh/pull-refresh';
+  import Flex from '@/pages/flex/flex';
 
   import CityPicker from '@/pages/cityPicker/cityPicker';
 import Api from '@/pages/api/api';
@@ -31,6 +32,7 @@ var router = new Router({
       {path: 'ActionSheet',component: ActionSheet,meta:{title:'ActionSheet'}},
       {path: 'PullRefresh',component: PullRefresh,meta:{title:'PullRefresh'}},
       {path: 'CityPicker',component: CityPicker,meta:{title:'CityPicker'}},
+      {path: 'Flex',component: Flex,meta:{title:'Flex'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]

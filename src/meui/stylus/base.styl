@@ -40,3 +40,13 @@ body, html
 .slide-left-enter, .slide-left-leave-to
   transform: translateX(100%)
 
+
+.me-flexbox
+  display: flex
+  display: -webkit-flex
+  &.me-flexbox-vertical
+    flex-direction: column
+  .me-flexbox-item
+    flex: 1
+    .me-flexbox-item-center
+      align-self: center
