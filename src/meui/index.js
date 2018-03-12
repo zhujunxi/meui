@@ -18,6 +18,8 @@ import ActionSheet from './components/actionsheet';
 
 import {CityPicker} from './components/cityPicker';
 
+import {Swiper} from './components/swiper';
+
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
   Vue.component(NavBar.name, NavBar);
@@ -36,6 +38,7 @@ const install = function (Vue) {
 
   Vue.component(CityPicker.name, CityPicker);
 
+  Vue.component(Swiper.name, Swiper);
   // Vue.component(ActionSheet.name, ActionSheet);
 
   // Vue.prototype.$dialog = {

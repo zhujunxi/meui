@@ -76,7 +76,7 @@ export default {
           list:[
             {title:'Accordion - 折叠菜单',path:'/Index/Cell'},
             {title:'Popup - 弹层',path:'/Index/Cell'},
-            {title:'Slider - 轮播',path:'/Index/Cell'},
+            {title:'Swiper - 轮播',path:'/Index/Swiper'},
             {title:'Lightbox - 图片查看',path:'/Index/Cell'},
           ]
         },{

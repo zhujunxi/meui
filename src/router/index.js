@@ -13,6 +13,8 @@ import Index from '@/pages/index/index';
   import Flex from '@/pages/flex/flex';
 
   import CityPicker from '@/pages/cityPicker/cityPicker';
+
+  import Swiper from '@/pages/swiper/swiper';
 import Api from '@/pages/api/api';
 
 
@@ -33,6 +35,7 @@ var router = new Router({
       {path: 'PullRefresh',component: PullRefresh,meta:{title:'PullRefresh'}},
       {path: 'CityPicker',component: CityPicker,meta:{title:'CityPicker'}},
       {path: 'Flex',component: Flex,meta:{title:'Flex'}},
+      {path: 'Swiper',component: Swiper,meta:{title:'Swiper'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]
