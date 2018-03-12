@@ -11,7 +11,10 @@
       <img :src="item" :alt="index">
     </div>
     <div class="swiper-dot" v-if="showdot">
-      <div :class="['swiper-dot-item', currentPage == index?'active':'']" v-for="(item, index) in imgList"></div>
+      <div
+        :class="['swiper-dot-item', currentPage == index?'active':'']"
+        v-for="(item, index) in imgList"
+      ></div>
     </div>
   </div>
 </template>
@@ -37,26 +40,38 @@ export default {
       type: Array,
       default:[]
     },
-    showdot:{
+    showdot: {
       type: Boolean,
       default: true
+    },
+    autoplay: {
+      type: Boolean,
+      default: true
+    }
+  },
+  watch:{
+    autoplay(value) {
+      value? this.autoPlay() : this.clearTimer()
     }
   },
   mounted(){
     this.$nextTick(() => {
       this.swiperWidth = this.$refs.swiper.offsetWidth
-      this.autoPlay()
+      this.autoplay ? this.autoPlay() : this.clearTimer()
     })
   },
   methods:{
     autoPlay() {
-      let timer = setInterval(() => {
+      this.timer = setInterval(() => {
         if(this.currentPage < this.imgList.length - 1) {
           this.currentPage++
         }else{
           this.currentPage = 0
         }
-      }, 4000)
+      }, 2000)
+    },
+    clearTimer() {
+      clearInterval(this.timer)
     },
     touchstart(e) {
       // 触摸开始

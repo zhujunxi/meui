@@ -1,6 +1,11 @@
 <template>
   <div class="view-page">
-    <me-swiper class="demo" :imgList="imgList" :showdot="showDot"></me-swiper>
+    <me-swiper
+      class="demo"
+      :imgList="imgList"
+      :showdot="showDot"
+      :autoplay="autoPlay">
+    </me-swiper>
     <me-cell-group title="Swiper配置">
       <me-cell-item type="label">
           <span slot="left">指示点</span>
@@ -24,7 +29,7 @@ export default {
         'http://temp.im/375x200/FF2D55/FFFFFF'
       ],
       showDot: true,
-      autoPlay: true,
+      autoPlay: false,
     }
   }
 }
