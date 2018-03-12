@@ -10,7 +10,7 @@
       >
       <img :src="item" :alt="index">
     </div>
-    <div class="swiper-dot">
+    <div class="swiper-dot" v-if="showdot">
       <div :class="['swiper-dot-item', currentPage == index?'active':'']" v-for="(item, index) in imgList"></div>
     </div>
   </div>
@@ -35,6 +35,11 @@ export default {
   props:{
     imgList:{
       type: Array,
+      default:[]
+    },
+    showdot:{
+      type: Boolean,
+      default: true
     }
   },
   mounted(){
