@@ -15,6 +15,7 @@ import Index from '@/pages/index/index';
   import CityPicker from '@/pages/cityPicker/cityPicker';
 
   import Swiper from '@/pages/swiper/swiper';
+  import Popup from '@/pages/popup/popup';
 import Api from '@/pages/api/api';
 
 
@@ -36,6 +37,7 @@ var router = new Router({
       {path: 'CityPicker',component: CityPicker,meta:{title:'CityPicker'}},
       {path: 'Flex',component: Flex,meta:{title:'Flex'}},
       {path: 'Swiper',component: Swiper,meta:{title:'Swiper'}},
+      {path: 'Popup',component: Popup,meta:{title:'Popup'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'}},
   ]
