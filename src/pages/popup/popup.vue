@@ -21,7 +21,7 @@
 
     <me-popup v-model="showPopup"> <p class="popup-demo">底部</p> </me-popup>
 
-    <me-popup v-model="showRight" position="right" width="60%">
+    <me-popup v-model="showRight" position="right" width="80%">
       <p style="padding:0 20px">
         <me-button size="large" @click.native="showRight = false">手动关闭</me-button>
       </p>

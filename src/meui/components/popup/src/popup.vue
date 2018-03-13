@@ -52,9 +52,7 @@ export default {
   },
   watch: {
     value(val) {
-      console.log(val)
       val ? preventScroll.lock() : preventScroll.unlock();
-      console.log(preventScroll)
     }
   },
   methods:{
