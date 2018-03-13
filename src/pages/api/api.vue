@@ -1,6 +1,14 @@
 <template>
   <div class="page">
-      <h1>api</h1>
+    <me-cell-group title="API">
+        <me-cell-item arrow type="link" href="/Api/Axios">
+            <span slot="left">axios封装</span>
+            <span slot="right"></span>
+        </me-cell-item>
+    </me-cell-group>
+    <transition name="slide-left">
+      <router-view/>
+    </transition>
   </div>
 </template>
 

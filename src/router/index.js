@@ -16,6 +16,8 @@ import Index from '@/pages/index/index';
 
   import Swiper from '@/pages/swiper/swiper';
   import Popup from '@/pages/popup/popup';
+
+  import Axios from '@/pages/axios/axios';
 import Api from '@/pages/api/api';
 
 
@@ -39,7 +41,9 @@ var router = new Router({
       {path: 'Swiper',component: Swiper,meta:{title:'Swiper'}},
       {path: 'Popup',component: Popup,meta:{title:'Popup'}},
     ]},
-    {path: '/Api',component: Api,meta:{title:'Api'}},
+    {path: '/Api',component: Api,meta:{title:'Api'},children:[
+      {path: 'Axios',component: Axios,meta:{title:'Axios'}},
+    ]},
   ]
 })
 
