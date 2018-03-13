@@ -19,6 +19,7 @@ import ActionSheet from './components/actionsheet';
 import {CityPicker} from './components/cityPicker';
 
 import {Swiper} from './components/swiper';
+import {Popup} from './components/popup';
 
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
@@ -39,6 +40,7 @@ const install = function (Vue) {
   Vue.component(CityPicker.name, CityPicker);
 
   Vue.component(Swiper.name, Swiper);
+  Vue.component(Popup.name, Popup);
   // Vue.component(ActionSheet.name, ActionSheet);
 
   // Vue.prototype.$dialog = {
