@@ -175,5 +175,4 @@ export default {
 .swiper-dot-item.active{
   background : rgba(255, 255, 255, 1);
 }
-
 </style>
