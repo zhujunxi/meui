@@ -8,7 +8,7 @@ const instance = new PreviewImageConstructor({
 })
 
 PreviewImageConstructor.prototype.open = (options = {}) => {
-
+    instance.visible = true
     instance.imgList = options.imgList
     instance.currentPage = options.index
     document.body.appendChild(instance.$el)
@@ -18,10 +18,15 @@ PreviewImageConstructor.prototype.open = (options = {}) => {
     })
 }
 PreviewImageConstructor.prototype.close = () => {
-  const el = instance.$el
-  el.parentNode && el.parentNode.removeChild(el)
+  instance.visible = false
+  const closePreviewImageTimer = setTimeout(() => {
+    clearTimeout(closePreviewImageTimer);
+    const el = instance.$el
+    el.parentNode && el.parentNode.removeChild(el)
 
-  pageScroll.unlock()
+    pageScroll.unlock()
+}, 300)
+
 }
 export default{
     open: instance.open,

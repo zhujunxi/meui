@@ -1,5 +1,6 @@
 <template>
-  <div class="preview-image" @click="close()">
+  <transition name="fade">
+  <div class="preview-image" @click="close()" v-show="visible">
     <div
       class="preview-image-item"
       v-for="(item, index) in imgList"
@@ -12,6 +13,8 @@
     </div>
     <div class="preview-num">{{currentPage+1}}/{{imgList.length}}</div>
   </div>
+  </transition>
+
 </template>
 <script>
 export default {
@@ -27,6 +30,7 @@ export default {
   },
   data() {
     return {
+      visible: false,
       threshold:60,       // 阈值
       tempData: {         // 临时数据
         movePos:{
@@ -106,40 +110,43 @@ export default {
 }
 </script>
 
-<style>
-.preview-image {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  overflow: hidden;
-  background: rgba(0, 0, 0, .9);
-}
-.preview-image-item{
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.preview-image-item img{
-  width: 100%;
-  height: auto;
-}
-.preview-num{
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  color: #FFF;
-  font-size: 16px;
-  padding: 12px 0;
-  z-index: 100;
-}
+<style lang="stylus" >
+.preview-image
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 1000
+  overflow: hidden
+  background: rgba(0, 0, 0, .9)
+  .preview-image-item
+    height: 100%
+    width: 100%
+    text-align: center
+    overflow: hidden
+    position: absolute
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    & img
+      width: 100%
+      height: auto
+  .preview-num
+    position: absolute
+    width: 100%
+    text-align: center
+    color: #FFF
+    font-size: 16px
+    padding: 12px 0
+    z-index: 100
+
+
+.fade-enter-active, .fade-leave-active
+    transition: all 0.3s ease
+
+.fade-enter, .fade-leave-to
+  opacity: 0
 </style>

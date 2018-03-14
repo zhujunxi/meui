@@ -41,6 +41,7 @@ export default {
   display flex
   justify-content flex-start
   align-items flex-end
+  flex-wrap wrap
   .img-list
     width 100px
     height auto
