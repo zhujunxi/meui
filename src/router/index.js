@@ -14,8 +14,9 @@ import Index from '@/pages/index/index';
 
   import CityPicker from '@/pages/cityPicker/cityPicker';
 
-  import Swiper from '@/pages/swiper/swiper';
   import Popup from '@/pages/popup/popup';
+  import Swiper from '@/pages/swiper/swiper';
+  import PreviewImage from '@/pages/previewImage/previewImage';
 
   import Axios from '@/pages/axios/axios';
 import Api from '@/pages/api/api';
@@ -38,8 +39,9 @@ var router = new Router({
       {path: 'PullRefresh',component: PullRefresh,meta:{title:'PullRefresh'}},
       {path: 'CityPicker',component: CityPicker,meta:{title:'CityPicker'}},
       {path: 'Flex',component: Flex,meta:{title:'Flex'}},
-      {path: 'Swiper',component: Swiper,meta:{title:'Swiper'}},
       {path: 'Popup',component: Popup,meta:{title:'Popup'}},
+      {path: 'Swiper',component: Swiper,meta:{title:'Swiper'}},
+      {path: 'PreviewImage',component: PreviewImage,meta:{title:'PreviewImage'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'},children:[
       {path: 'Axios',component: Axios,meta:{title:'Axios'}},

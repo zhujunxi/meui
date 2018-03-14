@@ -18,8 +18,9 @@ import ActionSheet from './components/actionsheet';
 
 import {CityPicker} from './components/cityPicker';
 
-import {Swiper} from './components/swiper';
 import {Popup} from './components/popup';
+import {Swiper} from './components/swiper';
+import PreviewImage from './components/previewImage';
 
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
@@ -39,8 +40,9 @@ const install = function (Vue) {
 
   Vue.component(CityPicker.name, CityPicker);
 
-  Vue.component(Swiper.name, Swiper);
   Vue.component(Popup.name, Popup);
+  Vue.component(Swiper.name, Swiper);
+
   // Vue.component(ActionSheet.name, ActionSheet);
 
   // Vue.prototype.$dialog = {
@@ -53,6 +55,8 @@ const install = function (Vue) {
     showLoading: Loading.open,
     hideLoading: Loading.close,
     showActionSheet: ActionSheet.open,
+
+    previewImage:PreviewImage.open,
   }
 };
 
