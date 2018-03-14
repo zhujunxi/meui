@@ -14,6 +14,7 @@ import Index from '@/pages/index/index';
 
   import CityPicker from '@/pages/cityPicker/cityPicker';
 
+  import Tab from '@/pages/tab/tab';
   import Popup from '@/pages/popup/popup';
   import Swiper from '@/pages/swiper/swiper';
   import PreviewImage from '@/pages/previewImage/previewImage';
@@ -39,6 +40,7 @@ var router = new Router({
       {path: 'PullRefresh',component: PullRefresh,meta:{title:'PullRefresh'}},
       {path: 'CityPicker',component: CityPicker,meta:{title:'CityPicker'}},
       {path: 'Flex',component: Flex,meta:{title:'Flex'}},
+      {path: 'Tab',component: Tab,meta:{title:'Tab'}},
       {path: 'Popup',component: Popup,meta:{title:'Popup'}},
       {path: 'Swiper',component: Swiper,meta:{title:'Swiper'}},
       {path: 'PreviewImage',component: PreviewImage,meta:{title:'PreviewImage'}},

@@ -71,7 +71,7 @@ export default {
           title:'基础组件',
           active:false,
           list:[
-            {title:'Tab - 选项卡',path:'/Index/Popup'},
+            {title:'Tab - 选项卡',path:'/Index/Tab'},
             {title:'Popup - 弹层',path:'/Index/Popup'},
             {title:'Swiper - 轮播',path:'/Index/Swiper'},
             {title:'Lightbox - 图片查看',path:'/Index/PreviewImage'},
