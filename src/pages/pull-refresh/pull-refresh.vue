@@ -21,8 +21,8 @@ let pageData = {
 export default {
   data() {
     return {
-      items:['第1行','第2行','第3行','第4行','第5行'],
-      itemIndex: 5,
+      items:['第1行','第2行','第3行','第4行','第5行','第6行','第7行','第8行','第9行','第10行'],
+      itemIndex: 10,
       // 配置项
       scrollOptions:{
         pullDownRefresh:{
@@ -69,7 +69,7 @@ export default {
           this.items = this.items.concat(newPage)
           pageData.page++
         }, 1000)
-        
+
       }else{
         this.$refs.scroll.forceUpdate()
       }

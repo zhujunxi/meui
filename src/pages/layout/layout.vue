@@ -13,28 +13,28 @@
       <div class="phone">
         <me-layout :show-navbar="showHeader">
           <div class="layout-item" v-if="activeTab === 0">
-              标签A
+              页面A
             </div>
             <div class="layout-item" v-if="activeTab === 1">
-              标签B
+              页面B
             </div>
             <div class="layout-item" v-if="activeTab === 2">
-              标签C
+              页面C
             </div>
           <me-tabbar slot="tabbar" v-if="showTab">
-            <me-tabbar-item title="标签A" @click.native="changeTab(0)" :active="activeTab == 0" type="div">
+            <me-tabbar-item title="页面A" @click.native="changeTab(0)" :active="activeTab == 0" type="div">
               <i class="iconfont" slot="icon">&#xe658;</i>
             </me-tabbar-item>
-            <me-tabbar-item title="标签2" @click.native="changeTab(1)" :active="activeTab == 1" type="div">
+            <me-tabbar-item title="页面2" @click.native="changeTab(1)" :active="activeTab == 1" type="div">
               <i class="iconfont" slot="icon">&#xe669;</i>
             </me-tabbar-item>
-            <me-tabbar-item title="标签3" @click.native="changeTab(2)" :active="activeTab == 2" type="div">
+            <me-tabbar-item title="页面3" @click.native="changeTab(2)" :active="activeTab == 2" type="div">
               <i class="iconfont" slot="icon">&#xe66d;</i>
             </me-tabbar-item>
           </me-tabbar>
         </me-layout>
       </div>
-      
+
   </div>
 </template>
 
@@ -43,7 +43,7 @@ export default {
   data () {
     return {
       switch1: false,
-      activeTab: 0, 
+      activeTab: 0,
       showHeader :true,
       showTab: true
     };

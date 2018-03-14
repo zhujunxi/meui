@@ -44,9 +44,8 @@ export default {
           title:'布局',
           active:false,
           list:[
-            {title:'Layout - 布局',path:'/Index/Layout'},
+            {title:'Layout - 页面布局',path:'/Index/Layout'},
             {title:'Flex - 弹性布局',path:'/Index/Flex'},
-            {title:'pull-refreshData - 下拉刷新与滚动加载',path:'/Index/PullRefresh'}
           ]
         },{
           title:'表单组件',
@@ -74,10 +73,13 @@ export default {
           title:'基础组件',
           active:false,
           list:[
-            {title:'Accordion - 折叠菜单',path:'/Index/Cell'},
+            {title:'Tab - 选项卡',path:'/Index/Popup'},
             {title:'Popup - 弹层',path:'/Index/Popup'},
             {title:'Swiper - 轮播',path:'/Index/Swiper'},
             {title:'Lightbox - 图片查看',path:'/Index/PreviewImage'},
+            {title:'Pull-Refresh - 下拉刷新',path:'/Index/PullRefresh'},
+            {title:'Infinite-Scroll - 滚动加载',path:'/Index/PullRefresh'},
+
           ]
         },{
           title:'业务组件',
