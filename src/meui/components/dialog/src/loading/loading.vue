@@ -12,7 +12,7 @@
     </transition>
     <div class="me-mask"></div>
   </div>
-  
+
 </template>
 
 <script>
@@ -35,7 +35,7 @@ export default {
     left: 0
     width 100%
     height 100%
-    z-index 1000
+    z-index 1001
     display flex
     align-items center
     justify-content center
@@ -47,6 +47,7 @@ export default {
       width auto
       color: #FFFFFF
       padding 10px 0px
+      z-index 1000
       .me-loading__hd
         padding 8px 0
       .me-loading__bd

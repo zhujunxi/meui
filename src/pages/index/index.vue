@@ -54,8 +54,6 @@ export default {
             {title:'Button - 按钮',path:'/Index/Button'},
             {title:'Form - 表单',path:'/Index/Form'},
             {title:'Cell - 列表',path:'/Index/Cell'},
-            {title:'Radio - 单选',path:'/Index/Cell'},
-            {title:'CheckBox - 多选',path:'/Index/Cell'},
             {title:'Uploader - 图片上传',path:'/Index/Cell'},
             {title:'Datepicker - 日期选择',path:'/Index/Cell'},
             {title:'Citypicker - 地区选择',path:'/Index/CityPicker'},

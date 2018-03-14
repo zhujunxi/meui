@@ -1,7 +1,7 @@
 <template>
   <div class="popup-wrap" >
     <transition name="fade">
-      <div v-if="value" class="me-mask" @click="close()"></div>
+      <div v-if="value" class="me-mask-outer" @click="close()"></div>
     </transition>
     <div
       :class="['popup', classes, value?'active':'']"
