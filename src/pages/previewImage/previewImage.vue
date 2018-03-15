@@ -1,6 +1,6 @@
 <template>
   <div class="view-page">
-    preview-image
+    <h3>点击图片预览</h3>
     <div class="img-list-wrap">
       <img
         class="img-list"
@@ -37,6 +37,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+h3
+  font-size 16px
+  padding 20px 12px
 .img-list-wrap
   display flex
   justify-content flex-start

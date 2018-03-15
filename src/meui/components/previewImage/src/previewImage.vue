@@ -11,7 +11,7 @@
       >
       <img :src="item" :alt="index">
     </div>
-    <div class="preview-num">{{currentPage+1}}/{{imgList.length}}</div>
+    <div class="preview-num"><span>{{currentPage+1}}/{{imgList.length}}</span></div>
   </div>
   </transition>
 
@@ -136,12 +136,17 @@ export default {
       height: auto
   .preview-num
     position: absolute
+    top 10px
     width: 100%
     text-align: center
     color: #FFF
     font-size: 16px
     padding: 12px 0
     z-index: 100
+    span
+      background rgba(0, 0, 0, .6)
+      padding 2px 12px
+      border-radius 50px
 
 
 .fade-enter-active, .fade-leave-active
