@@ -83,7 +83,7 @@ export default {
           title:'业务组件',
           active:false,
           list:[
-            {title:'Spinner - 数量选择器',path:'/Index/Cell'},
+            {title:'InputNumber - 数量选择器',path:'/Index/InputNumber'},
             {title:'Search - 搜索',path:'/Index/Cell'},
             {title:'List - 列表',path:'/Index/Cell'},
           ]

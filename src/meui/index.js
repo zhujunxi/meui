@@ -23,6 +23,8 @@ import {Popup} from './components/popup';
 import {Swiper} from './components/swiper';
 import PreviewImage from './components/previewImage';
 
+import {InputNumber} from './components/inputNumber';
+
 const install = function (Vue) {
   Vue.component(Layout.name, Layout);
   Vue.component(NavBar.name, NavBar);
@@ -45,6 +47,8 @@ const install = function (Vue) {
   Vue.component(TabItem.name, TabItem);
   Vue.component(Popup.name, Popup);
   Vue.component(Swiper.name, Swiper);
+
+  Vue.component(InputNumber.name, InputNumber);
 
   // Vue.component(ActionSheet.name, ActionSheet);
 
