@@ -10,6 +10,7 @@ export default {
   methods:{
     onItemClick() {
       this.$emit('on-change', this.currentIndex)
+      this.$parent.tabIndex = this.currentIndex
     }
   }
 }
