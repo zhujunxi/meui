@@ -20,6 +20,7 @@ import Index from '@/pages/index/index';
   import PreviewImage from '@/pages/previewImage/previewImage';
 
   import InputNumber from '@/pages/input-number/input-number';
+  import Search from '@/pages/search/search';
 
   import Axios from '@/pages/axios/axios';
 import Api from '@/pages/api/api';
@@ -47,6 +48,7 @@ var router = new Router({
       {path: 'Swiper',component: Swiper,meta:{title:'Swiper'}},
       {path: 'PreviewImage',component: PreviewImage,meta:{title:'PreviewImage'}},
       {path: 'InputNumber',component: InputNumber,meta:{title:'InputNumber'}},
+      {path: 'Search',component: Search,meta:{title:'Search'}},
     ]},
     {path: '/Api',component: Api,meta:{title:'Api'},children:[
       {path: 'Axios',component: Axios,meta:{title:'Axios'}},

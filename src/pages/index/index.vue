@@ -84,8 +84,7 @@ export default {
           active:false,
           list:[
             {title:'InputNumber - 数量选择器',path:'/Index/InputNumber'},
-            {title:'Search - 搜索',path:'/Index/Cell'},
-            {title:'List - 列表',path:'/Index/Cell'},
+            {title:'Search - 搜索',path:'/Index/Search'}
           ]
         }
       ]
