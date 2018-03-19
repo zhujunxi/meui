@@ -5,7 +5,7 @@
       <me-tabbar-item title="组件" link="/Index" :active="activePath == '/Index'">
         <i class="iconfont" slot="icon">&#xe658;</i>
       </me-tabbar-item>
-      <me-tabbar-item title="接口" link="/Api" :active="activePath == '/Api'">
+      <me-tabbar-item title="封装" link="/Api" :active="activePath == '/Api'">
         <i class="iconfont" slot="icon">&#xe669;</i>
       </me-tabbar-item>
     </me-tabbar>

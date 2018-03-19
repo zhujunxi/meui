@@ -29,7 +29,7 @@ export default {
   pre
     background:#282c34
     padding:10px
-    overflow-x:scroll
+    overflow:scroll
     border-radius:2px
     margin:5px 0
   code
@@ -41,6 +41,28 @@ export default {
     font-size: 22px
     line-height: 32px
     margin: 20px 0 30px
+  ul
+    padding 10px 0
+  li
+    position relative
+    padding-left 15px
+    line-height 24px
+    font-size 14px
+    &:after
+      content ''
+      position absolute
+      left 0
+      top 50%
+      margin-top -4px
+      height 6px
+      width 6px
+      border 1px solid #cccccc
+      border-radius 50%
+  hr
+    border 1px dashed #ccc
+    transform scaleY(.5)
+    margin 10px auto
+
   // 注释
   .hljs-comment
     color:#757983
