@@ -137,7 +137,6 @@ export default {
   background: #CCC;
 }
 .swiper-item{
-  background: #fff;
   height: 100%;
   width: 100%;
   text-align: center;
